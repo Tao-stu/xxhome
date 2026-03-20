@@ -68,7 +68,7 @@
                     <div class="profile-info">
                         <img src="/img/LOGO.jpg" alt="Logo" class="profile-avatar">
                         <div class="profile-text">
-                            <h1 class="signature"><span id="typing-text"></span></h1>
+                            <h1 class="signature"><span id="typing-text" data-text="Welcome to 小夏的个人空间"></span></h1>
                             <!-- <p class="quote">若非心胸宽广如海，人生如何能保持风平浪静。</p> -->
                         </div>
                     </div>
@@ -144,25 +144,7 @@
     </footer>
 
     <script src="script.js"></script>
-    <script>
-        // 打字机效果
-        document.addEventListener('DOMContentLoaded', function() {
-            const text = "Welcome to 小夏的个人空间";
-            const typingElement = document.getElementById('typing-text');
-            let index = 0;
-            
-            function typeText() {
-                if (index < text.length) {
-                    typingElement.textContent += text.charAt(index);
-                    index++;
-                    setTimeout(typeText, 100);
-                }
-            }
-            
-            // 延迟开始打字
-            setTimeout(typeText, 500);
-        });
-    </script>
+    <script src="js/typing-effect.js"></script>
 </body>
 
 </html>
