@@ -5,6 +5,135 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>404 - 页面未找到 | 小夏的个人空间</title>
     <link rel="stylesheet" href="/style.css">
+    <style>
+        /* 404页面专用样式 */
+        .error-page-content {
+            text-align: center;
+            padding: 4rem 2rem;
+        }
+
+        .error-code {
+            font-size: 8rem;
+            font-weight: 800;
+            line-height: 1;
+            background: linear-gradient(135deg, #7aa2f7 0%, #bb9af7 50%, #7dcfff 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 1rem;
+            animation: float 3s ease-in-out infinite;
+        }
+
+        .light .error-code {
+            background: linear-gradient(135deg, #2563eb 0%, #7c3aed 50%, #06b6d4 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+
+        .error-title {
+            font-size: 2rem;
+            font-weight: bold;
+            color: #7dcfff;
+            margin-bottom: 0.75rem;
+        }
+
+        .light .error-title {
+            color: #2563eb;
+        }
+
+        .error-message {
+            font-size: 1.125rem;
+            color: #c0caf5;
+            margin-bottom: 0.5rem;
+        }
+
+        .light .error-message {
+            color: #6b7280;
+        }
+
+        .error-description {
+            font-size: 0.9375rem;
+            color: #a9b1d6;
+            margin-bottom: 2.5rem;
+            max-width: 500px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .light .error-description {
+            color: #9ca3af;
+        }
+
+        .error-actions {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-top: 2rem;
+        }
+
+        .error-icon {
+            font-size: 4rem;
+            margin-bottom: 1.5rem;
+            display: block;
+            animation: pulse 2s ease-in-out infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); opacity: 1; }
+            50% { transform: scale(1.1); opacity: 0.8; }
+        }
+
+        /* 响应式 */
+        @media (max-width: 768px) {
+            .error-page-content {
+                padding: 3rem 1.5rem;
+            }
+
+            .error-code {
+                font-size: 6rem;
+            }
+
+            .error-title {
+                font-size: 1.5rem;
+            }
+
+            .error-message {
+                font-size: 1rem;
+            }
+
+            .error-description {
+                font-size: 0.875rem;
+            }
+
+            .error-actions {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .error-actions .cta-button {
+                width: 100%;
+                max-width: 280px;
+                justify-content: center;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .error-code {
+                font-size: 4.5rem;
+            }
+
+            .error-icon {
+                font-size: 3rem;
+            }
+        }
+    </style>
 </head>
 <body class="dark">
     <!-- 导航栏 -->
@@ -55,19 +184,20 @@
         <div class="container">
             <div class="article-container">
                 <div class="article-card">
-                    <div class="empty-state" style="padding: 4rem 2rem;">
-                        <div class="empty-icon">🔍</div>
-                        <h1 class="empty-title" style="font-size: 2rem; margin-bottom: 1rem;">404 - 页面未找到</h1>
-                        <p class="empty-subtitle" style="font-size: 1.125rem; margin-bottom: 1rem;">抱歉，您访问的页面不存在</p>
-                        <p class="empty-info" style="font-size: 0.9375rem; margin-bottom: 2rem;">可能是输入的网址有误，或者该页面已被删除</p>
-                        <div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
-                            <a href="/" class="cta-button" style="padding: 0.75rem 2rem; font-size: 1rem;">
+                    <div class="error-page-content">
+                        <div class="error-icon">🔍</div>
+                        <div class="error-code">404</div>
+                        <h1 class="error-title">页面未找到</h1>
+                        <p class="error-message">抱歉，您访问的页面不存在</p>
+                        <p class="error-description">可能是输入的网址有误，或者该页面已被删除、移动或重命名</p>
+                        <div class="error-actions">
+                            <a href="/" class="cta-button">
                                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" style="width: 1.25rem; height: 1.25rem;">
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" />
                                 </svg>
                                 返回首页
                             </a>
-                            <a href="/blog" class="cta-button" style="padding: 0.75rem 2rem; font-size: 1rem;">
+                            <a href="/blog" class="cta-button">
                                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" style="width: 1.25rem; height: 1.25rem;">
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 20H5a2 2 0 01-2-2V6a2 2 0 012-2h10a2 2 0 012 2v1m2 13a2 2 0 01-2-2V7m2 13a2 2 0 002-2V9a2 2 0 00-2-2h-2m-4-3H9M7 16h6M7 8h6v4H7V8z" />
                                 </svg>
