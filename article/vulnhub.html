@@ -1,0 +1,444 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vulnhub前置说明 - 小夏的个人空间</title>
+    <link rel="stylesheet" href="../style.css">
+    <link rel="icon" type="image/jpeg" href="/img/LOGO.jpg">
+    <script src="../js/lib/highlight.min.js" defer></script>
+</head>
+
+<body>
+    <!-- 导航栏 -->
+    <nav class="navbar" id="navbar">
+        <div class="container">
+            <div class="nav-content">
+                <!-- 桌面端导航 -->
+                <div class="nav-pills desktop-nav">
+                    <a href="/" class="nav-link" data-page="home">主页</a>
+                    <a href="/blog" class="nav-link active" data-page="blog">文章</a>
+                    <a href="/guestbook" class="nav-link" data-page="guestbook">留言</a>
+                    <a href="/about" class="nav-link" data-page="about">关于</a>
+                </div>
+
+                <!-- 右上角控制区 -->
+                <div class="nav-controls">
+                    <button id="theme-toggle" class="theme-toggle" title="切换主题">
+                        <svg class="moon-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z" />
+                        </svg>
+                        <svg class="sun-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z" />
+                        </svg>
+                    </button>
+
+                    <!-- 移动端菜单按钮 -->
+                    <button id="mobile-menu-toggle" class="mobile-menu-toggle">
+                        <svg class="hamburger-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M4 6h16M4 12h16M4 18h16" />
+                        </svg>
+                        <svg class="close-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M6 18L18 6M6 6l12 12" />
+                        </svg>
+                    </button>
+                </div>
+
+                <!-- 移动端菜单 -->
+                <div class="mobile-nav" id="mobile-nav">
+                    <a href="/" class="mobile-nav-link" data-page="home">主页</a>
+                    <a href="/blog" class="mobile-nav-link active" data-page="blog">文章</a>
+                    <a href="/guestbook" class="mobile-nav-link" data-page="guestbook">留言</a>
+                    <a href="/about" class="mobile-nav-link" data-page="about">关于</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- 主内容区 -->
+    <main class="main-content">
+        <div class="container">
+            <div class="article-wrapper">
+                <!-- 左侧目录 -->
+                <aside class="article-toc" id="articleToc">
+                    <!-- 返回按钮 -->
+                    <a href="/blog" class="toc-back-btn">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M19 12H5M12 19l-7-7 7-7" />
+                        </svg>
+                        <span>返回文章列表</span>
+                    </a>
+
+                    <!-- 文章标题 -->
+                    <div class="toc-article-title">Vulnhub前置说明</div>
+
+                    <div class="toc-header">
+                        <svg class="toc-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M4 6h16M4 12h16M4 18h7" />
+                        </svg>
+                        <span>文章目录</span>
+                    </div>
+                    <div class="toc-content" id="tocContent"></div>
+                </aside>
+
+                <!-- 文章主体 -->
+                <article class="article">
+                    <!-- 文章头部信息 -->
+                    <div class="article-header">
+                        <div class="article-meta">
+                            <span class="article-category">分类：综合渗透</span>
+                            <span class="article-date">2026 年 3 月 20 日</span>
+                        </div>
+
+                        <h1 class="article-title">Vulnhub前置说明</h1>
+
+                        <div class="article-tags">
+                            <span class="article-tag">Vulnhub</span>
+                            <span class="article-tag">渗透测试</span>
+                            <span class="article-tag">虚拟机</span>
+                        </div>
+
+                        <div class="article-summary">
+                            Vulnhub环境搭建的完整指南，包括简介、个人见解以及详细的网络环境搭建步骤。
+                        </div>
+                    </div>
+
+                    <!-- 文章内容 -->
+                    <div class="article-content" id="articleContent">
+                        <h1 id="heading-0">Vulnhub前置说明</h1>
+
+                        <figure>
+                            <img src="/img/vulnhub/image-20260320201759346.png" alt="Vulnhub" title="Vulnhub">
+                            <figcaption>图注：Vulnhub</figcaption>
+                        </figure>
+
+                        <h2 id="heading-1">Vulnhub的简介</h2>
+
+                        <p>Vulnhub 是一个全球知名的开源漏洞测试平台，专为网络安全学习者、渗透测试人员和安全爱好者提供实战训练环境。该平台汇集了数百个由社区贡献的预配置漏洞虚拟机（Vulnerable
+                            VMs），覆盖 Web 安全、网络攻防、物联网、工业控制系统（ICS）等多个领域。</p>
+
+                        <h2 id="heading-2">个人见解</h2>
+
+                        <p>在我的印象中，攻击者（hack）就是坐在电脑面前，敲命令能够渗透进其它人的电脑。所以在很早的时间就接触命令行、Linux。国家颁布了《网络安全法》，未经授权的攻击行为是违法的；而Vulnhub正是模拟了这一环境，在内网环境中，让我们能够合法的体验攻击者渗透攻击的过程。
+                        </p>
+
+                        <h2 id="heading-3">网络环境搭建</h2>
+
+                        <p>进行内网渗透，所以需要一个内网环境，采用NAT和仅主机模式都可以，为了模拟内网环境，推荐仅主机模式，完全隔绝外网。</p>
+
+                        <h3 id="heading-4">打开虚拟网络编辑器</h3>
+
+                        <figure>
+                            <img src="/img/vulnhub/image-20260320202821544.png" alt="打开虚拟网络编辑器" title="打开虚拟网络编辑器">
+                            <figcaption>图注：打开虚拟网络编辑器</figcaption>
+                        </figure>
+
+                        <h3 id="heading-5">创建新的网卡</h3>
+
+                        <p>点击更改设置</p>
+
+                        <figure>
+                            <img src="/img/vulnhub/image-20260320203109560.png" alt="更改设置" title="更改设置">
+                            <figcaption>图注：更改设置</figcaption>
+                        </figure>
+
+                        <p>然后添加网络</p>
+
+                        <figure>
+                            <img src="/img/vulnhub/image-20260320203208496.png" alt="添加网络" title="添加网络">
+                            <figcaption>图注：添加网络</figcaption>
+                        </figure>
+
+                        <p>选择任意VMnet名，然后确定</p>
+
+                        <figure>
+                            <img src="/img/vulnhub/image-20260320203324027.png" alt="选择VMnet" title="选择VMnet">
+                            <figcaption>图注：选择VMnet</figcaption>
+                        </figure>
+
+                        <p>为了方便记忆网段，我设置网段为192.168.19.0，填多少都可以，方便记忆，然后确定</p>
+
+                        <figure>
+                            <img src="/img/vulnhub/image-20260320203512051.png" alt="设置网段" title="设置网段">
+                            <figcaption>图注：设置网段</figcaption>
+                        </figure>
+
+                        <p>使用 <code>ipconfig</code> 查看网卡信息，存在VMnet19</p>
+
+                        <figure>
+                            <img src="/img/vulnhub/image-20260320203703334.png" alt="查看网卡信息" title="查看网卡信息">
+                            <figcaption>图注：查看网卡信息</figcaption>
+                        </figure>
+
+                        <p>成功的创建了网卡</p>
+
+                        <h3 id="heading-6">为攻击机添加内网网卡</h3>
+
+                        <p>攻击机Kali安装过程：先欠着，以后补上</p>
+
+                        <p>点击编辑此虚拟机设置</p>
+
+                        <figure>
+                            <img src="/img/vulnhub/image-20260320204153095.png" alt="编辑虚拟机设置" title="编辑虚拟机设置">
+                            <figcaption>图注：编辑虚拟机设置</figcaption>
+                        </figure>
+
+                        <p>点击添加</p>
+
+                        <figure>
+                            <img src="/img/vulnhub/image-20260320204222102.png" alt="添加硬件" title="添加硬件">
+                            <figcaption>图注：添加硬件</figcaption>
+                        </figure>
+
+                        <p>添加网络适配器</p>
+
+                        <figure>
+                            <img src="/img/vulnhub/image-20260320204342802.png" alt="添加网络适配器" title="添加网络适配器">
+                            <figcaption>图注：添加网络适配器</figcaption>
+                        </figure>
+
+                        <p>选择刚才新建的网卡，然后确定</p>
+
+                        <figure>
+                            <img src="/img/vulnhub/image-20260320205223745.png" alt="选择网卡" title="选择网卡">
+                            <figcaption>图注：选择网卡</figcaption>
+                        </figure>
+
+                        <figure>
+                            <img src="/img/vulnhub/image-20260320205243049.png" alt="网卡配置完成" title="网卡配置完成">
+                            <figcaption>图注：网卡配置完成</figcaption>
+                        </figure>
+
+                        <p>开机查看是否获取了IP地址</p>
+
+                        <figure>
+                            <img src="/img/vulnhub/image-20260320210108166.png" alt="获取IP地址" title="获取IP地址">
+                            <figcaption>图注：获取IP地址</figcaption>
+                        </figure>
+
+                        <p>成功获取了IP地址，内网环境搭建完成。</p>
+
+                    </div>
+
+                    <!-- 返回顶部按钮 -->
+                    <button id="backToTop" class="back-to-top" title="返回顶部">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M5 10l7-7m0 0l7 7m-7-7v18" />
+                        </svg>
+                    </button>
+                </article>
+            </div>
+        </div>
+    </main>
+
+    <!-- 页脚 -->
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; <span id="currentYear"></span> 小夏的个人空间</p>
+        </div>
+    </footer>
+
+    <!-- 脚本文件 -->
+    <script src="../script.js"></script>
+    <script>
+        // ==================== 目录功能 ====================
+        class ArticleTOC {
+            constructor() {
+                this.tocContent = document.getElementById('tocContent');
+                this.headings = [];
+                this.tocLinks = [];
+            }
+
+            generateTOC() {
+                const articleContent = document.getElementById('articleContent');
+                const headings = articleContent.querySelectorAll('h1, h2, h3, h4');
+
+                if (headings.length === 0) {
+                    document.getElementById('articleToc').style.display = 'none';
+                    return;
+                }
+
+                const counters = { h1: 0, h2: 0, h3: 0, h4: 0 };
+
+                headings.forEach((heading, index) => {
+                    const id = `heading-${index}`;
+                    heading.id = id;
+                    const level = parseInt(heading.tagName[1]);
+
+                    if (level === 1) {
+                        counters.h1++;
+                        counters.h2 = 0;
+                        counters.h3 = 0;
+                        counters.h4 = 0;
+                    } else if (level === 2) {
+                        counters.h2++;
+                        counters.h3 = 0;
+                        counters.h4 = 0;
+                    } else if (level === 3) {
+                        counters.h3++;
+                        counters.h4 = 0;
+                    } else if (level === 4) {
+                        counters.h4++;
+                    }
+
+                    let number = '';
+                    if (level === 1) {
+                        number = `${counters.h1}`;
+                    } else if (level === 2) {
+                        number = `${counters.h1}.${counters.h2}`;
+                    } else if (level === 3) {
+                        number = `${counters.h1}.${counters.h2}.${counters.h3}`;
+                    } else if (level === 4) {
+                        number = `${counters.h1}.${counters.h2}.${counters.h3}.${counters.h4}`;
+                    }
+
+                    this.headings.push({ element: heading, id: id, level: level, number: number });
+                });
+
+                let tocHTML = '<ul class="toc-list">';
+                this.headings.forEach((heading, index) => {
+                    const levelClass = `toc-level-${heading.level}`;
+                    tocHTML += `<li class="toc-item ${levelClass}"><a href="#${heading.id}" class="toc-link" data-index="${index}"><span class="toc-number">${heading.number}</span>${heading.element.textContent}</a></li>`;
+                });
+                tocHTML += '</ul>';
+
+                this.tocContent.innerHTML = tocHTML;
+
+                this.tocLinks = this.tocContent.querySelectorAll('.toc-link');
+                this.tocLinks.forEach(link => {
+                    link.addEventListener('click', (e) => {
+                        e.preventDefault();
+                        const targetId = link.getAttribute('href').slice(1);
+                        const targetElement = document.getElementById(targetId);
+                        if (targetElement) {
+                            const offset = 100;
+                            const elementPosition = targetElement.getBoundingClientRect().top;
+                            const offsetPosition = elementPosition + window.pageYOffset - offset;
+                            window.scrollTo({ top: offsetPosition, behavior: 'smooth' });
+                        }
+                    });
+                });
+            }
+
+            highlightActiveTOC() {
+                const scrollPosition = window.pageYOffset;
+
+                for (let i = this.headings.length - 1; i >= 0; i--) {
+                    const heading = this.headings[i].element;
+                    const headingPosition = heading.getBoundingClientRect().top + window.pageYOffset;
+
+                    if (headingPosition <= scrollPosition + 200) {
+                        this.tocLinks.forEach(link => link.classList.remove('active'));
+                        const activeLink = this.tocLinks[i];
+                        if (activeLink) {
+                            activeLink.classList.add('active');
+                            this.scrollTOCToActive(activeLink);
+                        }
+                        break;
+                    }
+                }
+            }
+
+            scrollTOCToActive(activeLink) {
+                const tocContent = this.tocContent;
+                if (!tocContent || !activeLink) return;
+
+                const containerRect = tocContent.getBoundingClientRect();
+                const linkRect = activeLink.getBoundingClientRect();
+
+                const relativeTop = linkRect.top - containerRect.top;
+                const centerOffset = (containerRect.height / 2) - (linkRect.height / 2);
+                const targetScroll = tocContent.scrollTop + relativeTop - centerOffset;
+
+                tocContent.scrollTo({
+                    top: Math.max(0, Math.min(targetScroll, tocContent.scrollHeight - containerRect.height)),
+                    behavior: 'smooth'
+                });
+            }
+        }
+
+        function initArticle() {
+            const toc = new ArticleTOC();
+
+            if (typeof hljs !== 'undefined') {
+                document.querySelectorAll('.article-content pre code').forEach((block) => {
+                    hljs.highlightElement(block);
+
+                    const language = block.className.match(/language-(\w+)/);
+                    const langName = language ? language[1] : 'plaintext';
+
+                    const pre = block.parentElement;
+                    const wrapper = document.createElement('div');
+                    wrapper.className = 'code-block-wrapper';
+                    pre.parentNode.insertBefore(wrapper, pre);
+                    wrapper.appendChild(pre);
+
+                    const toolbar = document.createElement('div');
+                    toolbar.className = 'code-block-toolbar';
+
+                    const langLabel = document.createElement('span');
+                    langLabel.className = 'code-block-language';
+                    langLabel.textContent = langName;
+                    toolbar.appendChild(langLabel);
+
+                    const copyBtn = document.createElement('button');
+                    copyBtn.className = 'code-block-copy-btn';
+                    copyBtn.innerHTML = `<svg class="copy-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor"><rect x="9" y="9" width="13" height="13" rx="2" ry="2" stroke-width="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1" stroke-width="2"/></svg>`;
+                    toolbar.appendChild(copyBtn);
+                    wrapper.insertBefore(toolbar, pre);
+
+                    copyBtn.addEventListener('click', async () => {
+                        const code = block.textContent;
+                        try {
+                            await navigator.clipboard.writeText(code);
+                            copyBtn.innerHTML = `<svg class="copy-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor"><polyline points="20 6 9 17 4 12" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>`;
+                            setTimeout(() => {
+                                copyBtn.innerHTML = `<svg class="copy-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor"><rect x="9" y="9" width="13" height="13" rx="2" ry="2" stroke-width="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1" stroke-width="2"/></svg>`;
+                            }, 2000);
+                        } catch (err) {
+                            console.error('复制失败:', err);
+                            alert('复制失败，请手动复制');
+                        }
+                    });
+                });
+            }
+
+            document.getElementById('currentYear').textContent = new Date().getFullYear();
+
+            window.addEventListener('scroll', () => {
+                toc.highlightActiveTOC();
+            });
+
+            toc.highlightActiveTOC();
+            toc.generateTOC();
+
+            const articleTitle = document.querySelector('.article-title');
+            const tocArticleTitle = document.querySelector('.toc-article-title');
+            if (articleTitle && tocArticleTitle) {
+                tocArticleTitle.textContent = articleTitle.textContent;
+            }
+        }
+
+        function waitForLibraries() {
+            if (typeof hljs !== 'undefined') {
+                initArticle();
+            } else {
+                setTimeout(waitForLibraries, 100);
+            }
+        }
+
+        document.addEventListener('DOMContentLoaded', function () {
+            waitForLibraries();
+        });
+    </script>
+</body>
+
+</html>

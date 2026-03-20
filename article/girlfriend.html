@@ -1,0 +1,702 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vulnhub靶场之Me-and-my-girlfriend - 小夏的个人空间</title>
+    <link rel="stylesheet" href="../style.css">
+    <link rel="icon" type="image/jpeg" href="/img/LOGO.jpg">
+    <script src="../js/lib/highlight.min.js" defer></script>
+</head>
+
+<body>
+    <!-- 导航栏 -->
+    <nav class="navbar" id="navbar">
+        <div class="container">
+            <div class="nav-content">
+                <!-- 桌面端导航 -->
+                <div class="nav-pills desktop-nav">
+                    <a href="/" class="nav-link" data-page="home">主页</a>
+                    <a href="/blog" class="nav-link active" data-page="blog">文章</a>
+                    <a href="/guestbook" class="nav-link" data-page="guestbook">留言</a>
+                    <a href="/about" class="nav-link" data-page="about">关于</a>
+                </div>
+
+                <!-- 右上角控制区 -->
+                <div class="nav-controls">
+                    <button id="theme-toggle" class="theme-toggle" title="切换主题">
+                        <svg class="moon-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z" />
+                        </svg>
+                        <svg class="sun-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z" />
+                        </svg>
+                    </button>
+
+                    <!-- 移动端菜单按钮 -->
+                    <button id="mobile-menu-toggle" class="mobile-menu-toggle">
+                        <svg class="hamburger-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M4 6h16M4 12h16M4 18h16" />
+                        </svg>
+                        <svg class="close-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M6 18L18 6M6 6l12 12" />
+                        </svg>
+                    </button>
+                </div>
+
+                <!-- 移动端菜单 -->
+                <div class="mobile-nav" id="mobile-nav">
+                    <a href="/" class="mobile-nav-link" data-page="home">主页</a>
+                    <a href="/blog" class="mobile-nav-link active" data-page="blog">文章</a>
+                    <a href="/guestbook" class="mobile-nav-link" data-page="guestbook">留言</a>
+                    <a href="/about" class="mobile-nav-link" data-page="about">关于</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- 主内容区 -->
+    <main class="main-content">
+        <div class="container">
+            <div class="article-wrapper">
+                <!-- 左侧目录 -->
+                <aside class="article-toc" id="articleToc">
+                    <!-- 返回按钮 -->
+                    <a href="/blog" class="toc-back-btn">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M19 12H5M12 19l-7-7 7-7" />
+                        </svg>
+                        <span>返回文章列表</span>
+                    </a>
+
+                    <!-- 文章标题 -->
+                    <div class="toc-article-title">Vulnhub靶场之Me-and-my-girlfriend</div>
+
+                    <div class="toc-header">
+                        <svg class="toc-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M4 6h16M4 12h16M4 18h7" />
+                        </svg>
+                        <span>文章目录</span>
+                    </div>
+                    <div class="toc-content" id="tocContent"></div>
+                </aside>
+
+                <!-- 文章主体 -->
+                <article class="article">
+                    <!-- 文章头部信息 -->
+                    <div class="article-header">
+                        <div class="article-meta">
+                            <span class="article-category">分类：综合渗透</span>
+                            <span class="article-date">2026 年 3 月 20 日</span>
+                        </div>
+
+                        <h1 class="article-title">Vulnhub靶场之Me-and-my-girlfriend</h1>
+
+                        <div class="article-tags">
+                            <span class="article-tag">Vulnhub</span>
+                            <span class="article-tag">渗透测试</span>
+                            <span class="article-tag">CTF</span>
+                        </div>
+
+                        <div class="article-summary">
+                            完整的Vulnhub靶场"Me-and-my-girlfriend"渗透测试过程，从信息收集到提权的详细步骤。
+                        </div>
+                    </div>
+
+                    <!-- 文章内容 -->
+                    <div class="article-content" id="articleContent">
+                        <p>下载连接: <a href="https://download.vulnhub.com/meandmygirlfriend/Me-and-My-Girlfriend-1.ova"
+                                target="_blank"
+                                rel="noopener noreferrer">https://download.vulnhub.com/meandmygirlfriend/Me-and-My-Girlfriend-1.ova</a>
+                        </p>
+
+                        <figure>
+                            <img src="/img/girlfriend/image-20260320200515358.png" alt="靶场封面" title="靶场封面">
+                            <figcaption>图注：靶场封面</figcaption>
+                        </figure>
+
+                        <h2 id="heading-0">前置工作</h2>
+
+                        <p>下载完成后，我们需要将靶场环境导入到虚拟机软件中进行测试。</p>
+
+                        <h3 id="heading-1">导入虚拟机</h3>
+
+                        <p>双击下载好的 .ova 文件</p>
+
+                        <figure>
+                            <img src="/img/girlfriend/image-20260320211224505.png" alt="导入虚拟机" title="导入虚拟机">
+                            <figcaption>图注：导入虚拟机</figcaption>
+                        </figure>
+
+                        <p>在弹出的对话框中选择导入到 VMware</p>
+
+                        <figure>
+                            <img src="/img/girlfriend/image-20260320211135369.png" alt="选择导入" title="选择导入">
+                            <figcaption>图注：选择导入</figcaption>
+                        </figure>
+
+                        <h3 id="heading-2">网络配置</h3>
+
+                        <p>为了确保测试环境的安全性，我们需要为这个虚拟机配置仅主机网络模式。这样可以：</p>
+                        <ul>
+                            <li>避免靶机与外网连接</li>
+                            <li>确保攻击机和靶机在同一网段内</li>
+                            <li>防止对真实网络造成影响</li>
+                        </ul>
+
+                        <figure>
+                            <img src="/img/girlfriend/image-20260320211421945.png" alt="网络配置" title="网络配置">
+                            <figcaption>图注：网络配置</figcaption>
+                        </figure>
+
+                        <h2 id="heading-3">渗透测试</h2>
+
+                        <p>由于我们对这个靶场没有任何预先信息，因此需要从零开始进行全面的渗透测试。按照标准渗透测试流程，我们将依次进行：信息收集、漏洞发现、漏洞利用、获取访问、权限提升。</p>
+
+                        <h3 id="heading-4">信息收集</h3>
+
+                        <p>信息收集是渗透测试的第一步，也是至关重要的一步。通过全面的信息收集，我们可以了解目标系统的基本情况，为后续攻击奠定基础。</p>
+
+                        <h4 id="heading-5">准备工作</h4>
+
+                        <p>首先，将外网网卡断开连接，避免网络冲突和潜在的安全风险。确保攻击机和靶机在同一网段内。</p>
+
+                        <h4 id="heading-6">主机发现</h4>
+
+                        <p>已知攻击机与靶机在同一网段（192.168.19.x），我们可以使用以下两种方法进行内网主机发现：</p>
+
+                        <p><strong>方法一：使用 arp-scan 进行ARP扫描</strong></p>
+
+                        <p>arp-scan 通过发送ARP请求来发现同一网段内的主机，速度更快、更准确。</p>
+
+                        <pre><code class="language-bash">arp-scan -l</code></pre>
+
+                        <p><strong>方法二：使用 nmap 进行网络扫描</strong></p>
+
+                        <p>nmap 是功能强大的网络扫描工具，可以扫描整个网段的主机。</p>
+
+                        <pre><code class="language-bash">nmap 192.168.19.0/24</code></pre>
+
+                        <figure>
+                            <img src="/img/girlfriend/image-20260320212854723.png" alt="arp-scan扫描结果"
+                                title="arp-scan扫描结果">
+                            <figcaption>图注：arp-scan扫描结果</figcaption>
+                        </figure>
+
+                        <figure>
+                            <img src="/img/girlfriend/image-20260320213347678.png" alt="nmap扫描结果" title="nmap扫描结果">
+                            <figcaption>图注：nmap扫描结果</figcaption>
+                        </figure>
+
+                        <h4 id="heading-7">扫描结果分析</h4>
+
+                        <p>通过扫描，我们成功定位到目标主机：</p>
+
+                        <ul>
+                            <li><strong>目标主机IP</strong>：192.168.19.129</li>
+                            <li><strong>开放端口</strong>：22（SSH）、80（HTTP）</li>
+                        </ul>
+
+                        <h4 id="heading-8">端口服务分析</h4>
+
+                        <ul>
+                            <li><strong>端口 22</strong>：SSH服务，可能用于远程登录，是后续获取Shell的重要入口</li>
+                            <li><strong>端口 80</strong>：HTTP Web服务，通常存在Web应用，是渗透测试的重点目标</li>
+                        </ul>
+
+                        <p>下一步我们将重点针对80端口的Web应用进行深入分析。</p>
+
+                        <h3 id="heading-9">访问端口</h3>
+
+                        <p>在确认了目标IP和开放端口后，我们开始深入分析80端口的Web应用。</p>
+
+                        <h4 id="heading-10">初步访问</h4>
+
+                        <p>打开浏览器，访问 http://192.168.19.129</p>
+
+                        <figure>
+                            <img src="/img/girlfriend/image-20260320232746500.png" alt="访问80端口" title="访问80端口">
+                            <figcaption>图注：访问80端口</figcaption>
+                        </figure>
+
+                        <p>页面显示"Only localhost can access this page"，这表明网站有IP访问限制。</p>
+
+                        <h4 id="heading-11">源码分析</h4>
+
+                        <p>查看页面源码，了解页面结构和可能存在的线索</p>
+
+                        <figure>
+                            <img src="/img/girlfriend/image-20260320232757169.png" alt="页面源码" title="页面源码">
+                            <figcaption>图注：页面源码</figcaption>
+                        </figure>
+
+                        <h4 id="heading-12">绕过IP限制</h4>
+
+                        <p>看到"Only localhost"的提示，我们尝试使用 <strong>X-Forwarded-For Header</strong> 绕过IP限制。</p>
+
+                        <p><strong>原理说明</strong>：
+                            X-Forwarded-For
+                            是一个HTTP请求头，用于识别通过HTTP代理或负载均衡器连接到Web服务器的客户端最原始的IP地址。很多应用程序使用这个头部来判断客户端的IP，但这个头部是客户端可控的，因此可以被伪造。
+                        </p>
+
+                        <p><strong>操作步骤</strong>：</p>
+                        <ol>
+                            <li>安装浏览器插件（如 ModHeader 或 X-Forwarded-For Header）</li>
+                            <li>设置 X-Forwarded-For 头的值为 127.0.0.1（本地回环地址）</li>
+                        </ol>
+
+                        <figure>
+                            <img src="/img/girlfriend/image-20260320232525606.png" alt="设置XFF" title="设置XFF">
+                            <figcaption>图注：设置XFF</figcaption>
+                        </figure>
+
+                        <p>在插件中配置：</p>
+                        <ul>
+                            <li>Header: X-Forwarded-For</li>
+                            <li>Value: 127.0.0.1</li>
+                        </ul>
+
+                        <figure>
+                            <img src="/img/girlfriend/image-20260320232705707.png" alt="配置XFF值" title="配置XFF值">
+                            <figcaption>图注：配置XFF值</figcaption>
+                        </figure>
+
+                        <h4 id="heading-13">绕过成功</h4>
+
+                        <p>刷新页面，成功绕过IP限制，显示出正常的网页内容</p>
+
+                        <figure>
+                            <img src="/img/girlfriend/image-20260320232940891.png" alt="成功访问" title="成功访问">
+                            <figcaption>图注：成功访问</figcaption>
+                        </figure>
+
+                        <p>页面显示的是一个用户登录和注册界面，提示我们可以注册一个新用户并找到女朋友。</p>
+
+                        <h3 id="heading-14">目录扫描</h3>
+
+                        <p>为了发现更多隐藏的文件和目录，我们使用目录扫描工具进行深入探测。</p>
+
+                        <h4 id="heading-15">使用 dirsearch</h4>
+
+                        <p>dirsearch 是一个功能强大的目录扫描工具，可以快速发现网站上的隐藏路径。</p>
+
+                        <pre><code class="language-bash">dirsearch -u "http://192.168.19.129/?page=index"</code></pre>
+
+                        <p><strong>命令说明</strong>：</p>
+                        <ul>
+                            <li><code>-u</code>：指定目标URL</li>
+                            <li><code>?page=index</code>：指定扫描的起点页面</li>
+                        </ul>
+
+                        <figure>
+                            <img src="/img/girlfriend/image-20260320233618200.png" alt="dirsearch扫描"
+                                title="dirsearch扫描">
+                            <figcaption>图注：dirsearch扫描</figcaption>
+                        </figure>
+
+                        <h4 id="heading-16">扫描结果分析</h4>
+
+                        <p>对扫描发现的路径逐一访问测试，在 robots.txt 文件中发现了关键信息</p>
+
+                        <figure>
+                            <img src="/img/girlfriend/image-20260320233755441.png" alt="robots.txt" title="robots.txt">
+                            <figcaption>图注：robots.txt</figcaption>
+                        </figure>
+
+                        <p><strong>robots.txt 是什么？</strong>
+                            robots.txt 是网站告诉爬虫哪些页面可以抓取、哪些不能抓取的文件。虽然它的主要作用是指导搜索引擎爬虫，但有时也会泄露一些敏感信息或隐藏路径。</p>
+
+                        <h4 id="heading-17">访问隐藏文件</h4>
+
+                        <p>访问扫描发现的 heyhoo.txt 文件</p>
+
+                        <figure>
+                            <img src="/img/girlfriend/image-20260320233921452.png" alt="heyhoo.txt" title="heyhoo.txt">
+                            <figcaption>图注：heyhoo.txt</figcaption>
+                        </figure>
+
+                        <p>该文件中并没有包含 flag 信息，提示我们需要继续深入探索。让我们回到主页面，尝试注册账号并登录，看看是否能发现更多线索。</p>
+
+                        <h3 id="heading-18">Get shell</h3>
+
+                        <p>这里选择注册一个用户并登录，查看登陆后有没有什么疑点</p>
+
+                        <figure>
+                            <img src="/img/girlfriend/image-20260320234309924.png" alt="注册登录" title="注册登录">
+                            <figcaption>图注：注册登录</figcaption>
+                        </figure>
+
+                        <p>登陆后经过观察，发现是GET传参</p>
+
+                        <figure>
+                            <img src="/img/girlfriend/image-20260320234606903.png" alt="GET传参" title="GET传参">
+                            <figcaption>图注：GET传参</figcaption>
+                        </figure>
+
+                        <p>也许管理员用户就隐藏在其中，将id改成1试试</p>
+
+                        <figure>
+                            <img src="/img/girlfriend/image-20260320234651293.png" alt="修改id参数" title="修改id参数">
+                            <figcaption>图注：修改id参数</figcaption>
+                        </figure>
+
+                        <p>果然，用户名也跟着发生了改变，查看页面源码，将input标签的类型改为text查看密码</p>
+
+                        <figure>
+                            <img src="/img/girlfriend/image-20260320234828926.png" alt="查看密码" title="查看密码">
+                            <figcaption>图注：查看密码</figcaption>
+                        </figure>
+
+                        <p>得到一组用户名和密码，继续挨个将其余的用户名和密码整理出来</p>
+
+                        <pre><code>id=1
+Eweuh Tandingan
+eweuhtandingan
+skuyatuh
+
+id=2
+Aing Maung
+aingmaung
+aingmaung
+
+id=3
+Sunda Tea
+sundatea
+indONEsia
+
+id=4
+Sedih Aing Mah
+sedihaingmah
+cedihhihihi
+
+id=5
+Alice Geulis
+alice
+4lic3</code></pre>
+
+                        <p>在尝试到id=5的时候，得到了alice用户，题目中说girlfriend名字是alice，所以尝试使用alice的账号远程登录</p>
+
+                        <pre><code class="language-bash">ssh alice@192.168.19.129</code></pre>
+
+                        <figure>
+                            <img src="/img/girlfriend/image-20260320235359972.png" alt="SSH登录" title="SSH登录">
+                            <figcaption>图注：SSH登录</figcaption>
+                        </figure>
+
+                        <p>成功get shell</p>
+
+                        <p>使用 <code>ls -a</code> 查看用户目录有什么文件</p>
+
+                        <figure>
+                            <img src="/img/girlfriend/image-20260320235813143.png" alt="查看文件" title="查看文件">
+                            <figcaption>图注：查看文件</figcaption>
+                        </figure>
+
+                        <p>在.my_secret下找到了flag1.txt，尝试提权寻找其它flag</p>
+
+                        <h3 id="heading-19">提权</h3>
+
+                        <p>因为是web服务器，查看一下apache的目录</p>
+
+                        <figure>
+                            <img src="/img/girlfriend/image-20260321000119720.png" alt="查看apache目录" title="查看apache目录">
+                            <figcaption>图注：查看apache目录</figcaption>
+                        </figure>
+
+                        <p>发现root用户和密码</p>
+
+                        <p><code>root/ctf_pasti_bisa</code></p>
+
+                        <figure>
+                            <img src="/img/girlfriend/image-20260321000226440.png" alt="提权成功" title="提权成功">
+                            <figcaption>图注：提权成功</figcaption>
+                        </figure>
+
+                        <p>提权成功，寻找flag2</p>
+
+                        <figure>
+                            <img src="/img/girlfriend/image-20260321000337842.png" alt="flag2" title="flag2">
+                            <figcaption>图注：flag2</figcaption>
+                        </figure>
+
+                        <p>在root家目录发现flag2</p>
+
+                        <h2 id="heading-20">总结</h2>
+
+                        <h3 id="heading-21">技术要点总结</h3>
+
+                        <h4 id="heading-22">1. 信息收集阶段</h4>
+                        <ul>
+                            <li>使用 <code>arp-scan</code> 和 <code>nmap</code> 进行内网主机发现，定位目标IP 192.168.19.129</li>
+                            <li>发现开放端口：22(SSH)、80(HTTP)</li>
+                            <li>端口扫描是渗透测试的第一步，为后续攻击奠定基础</li>
+                        </ul>
+
+                        <h4 id="heading-23">2. Web应用侦察</h4>
+                        <ul>
+                            <li>通过修改 X-Forwarded-For Header 为 127.0.0.1 绕过IP访问限制</li>
+                            <li>使用 <code>dirsearch</code> 进行目录扫描，在 robots.txt 中发现关键文件 heyhoo.txt</li>
+                            <li>善于使用目录扫描工具和查看 robots.txt 等常见位置</li>
+                        </ul>
+
+                        <h4 id="heading-24">3. 敏感信息获取</h4>
+                        <ul>
+                            <li>注册并登录后发现 GET 传参漏洞：<code>?page=profile&amp;id=5</code></li>
+                            <li>通过修改 id 参数遍历用户信息（id=1 到 id=5）</li>
+                            <li>利用浏览器开发者工具修改 input 标签的 type 属性（password → text）查看明文密码</li>
+                            <li>最终获取到目标用户 alice 的凭据：alice / 4lic3</li>
+                        </ul>
+
+                        <h4 id="heading-25">4. 获取初始访问权限</h4>
+                        <ul>
+                            <li>使用获取的 SSH 凭据成功登录目标系统</li>
+                            <li>在用户目录 <code>.my_secret/flag1.txt</code> 中找到第一个 flag</li>
+                        </ul>
+
+                        <h4 id="heading-26">5. 权限提升</h4>
+                        <ul>
+                            <li>检查 Web 服务器配置文件（Apache 配置目录）</li>
+                            <li>在配置文件中发现明文的 root 用户密码：ctf_pasti_bisa</li>
+                            <li>使用 root 凭据通过 SSH 提权成功</li>
+                            <li>在 <code>/root/flag2.txt</code> 中找到第二个 flag</li>
+                        </ul>
+
+                        <h3 id="heading-27">安全启示</h3>
+
+                        <ul>
+                            <li><strong>弱口令风险</strong>：系统使用了简单的密码，容易被猜测或暴力破解</li>
+                            <li><strong>配置文件泄露</strong>：敏感的数据库或管理员凭据不应明文存储在配置文件中</li>
+                            <li><strong>输入验证不足</strong>：GET 参数可直接遍历用户信息，缺少访问控制</li>
+                            <li><strong>IP过滤不可靠</strong>：仅依赖 HTTP Header 进行IP过滤容易被绕过</li>
+                            <li><strong>前端验证不可信</strong>：密码字段通过前端隐藏，后端未做额外保护</li>
+                        </ul>
+
+                        <h3 id="heading-28">Flag 信息</h3>
+
+                        <pre><code class="language-flag">Flag 1 : gfriEND{2f5f21b2af1b8c3e227bcf35544f8f09}
+Flag 2: gfriEND{56fbeef560930e77ff984b644fde66e7}</code></pre>
+
+                    </div>
+
+                    <!-- 返回顶部按钮 -->
+                    <button id="backToTop" class="back-to-top" title="返回顶部">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M5 10l7-7m0 0l7 7m-7-7v18" />
+                        </svg>
+                    </button>
+                </article>
+            </div>
+        </div>
+    </main>
+
+    <!-- 页脚 -->
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; <span id="currentYear"></span> 小夏的个人空间</p>
+        </div>
+    </footer>
+
+    <!-- 脚本文件 -->
+    <script src="../script.js"></script>
+    <script>
+        // ==================== 目录功能 ====================
+        class ArticleTOC {
+            constructor() {
+                this.tocContent = document.getElementById('tocContent');
+                this.headings = [];
+                this.tocLinks = [];
+            }
+
+            generateTOC() {
+                const articleContent = document.getElementById('articleContent');
+                const headings = articleContent.querySelectorAll('h1, h2, h3, h4');
+
+                if (headings.length === 0) {
+                    document.getElementById('articleToc').style.display = 'none';
+                    return;
+                }
+
+                const counters = { h1: 0, h2: 0, h3: 0, h4: 0 };
+
+                headings.forEach((heading, index) => {
+                    const id = `heading-${index}`;
+                    heading.id = id;
+                    const level = parseInt(heading.tagName[1]);
+
+                    if (level === 1) {
+                        counters.h1++;
+                        counters.h2 = 0;
+                        counters.h3 = 0;
+                        counters.h4 = 0;
+                    } else if (level === 2) {
+                        counters.h2++;
+                        counters.h3 = 0;
+                        counters.h4 = 0;
+                    } else if (level === 3) {
+                        counters.h3++;
+                        counters.h4 = 0;
+                    } else if (level === 4) {
+                        counters.h4++;
+                    }
+
+                    let number = '';
+                    if (level === 1) {
+                        number = `${counters.h1}`;
+                    } else if (level === 2) {
+                        number = `${counters.h1}.${counters.h2}`;
+                    } else if (level === 3) {
+                        number = `${counters.h1}.${counters.h2}.${counters.h3}`;
+                    } else if (level === 4) {
+                        number = `${counters.h1}.${counters.h2}.${counters.h3}.${counters.h4}`;
+                    }
+
+                    this.headings.push({ element: heading, id: id, level: level, number: number });
+                });
+
+                let tocHTML = '<ul class="toc-list">';
+                this.headings.forEach((heading, index) => {
+                    const levelClass = `toc-level-${heading.level}`;
+                    tocHTML += `<li class="toc-item ${levelClass}"><a href="#${heading.id}" class="toc-link" data-index="${index}"><span class="toc-number">${heading.number}</span>${heading.element.textContent}</a></li>`;
+                });
+                tocHTML += '</ul>';
+
+                this.tocContent.innerHTML = tocHTML;
+
+                this.tocLinks = this.tocContent.querySelectorAll('.toc-link');
+                this.tocLinks.forEach(link => {
+                    link.addEventListener('click', (e) => {
+                        e.preventDefault();
+                        const targetId = link.getAttribute('href').slice(1);
+                        const targetElement = document.getElementById(targetId);
+                        if (targetElement) {
+                            const offset = 100;
+                            const elementPosition = targetElement.getBoundingClientRect().top;
+                            const offsetPosition = elementPosition + window.pageYOffset - offset;
+                            window.scrollTo({ top: offsetPosition, behavior: 'smooth' });
+                        }
+                    });
+                });
+            }
+
+            highlightActiveTOC() {
+                const scrollPosition = window.pageYOffset;
+
+                for (let i = this.headings.length - 1; i >= 0; i--) {
+                    const heading = this.headings[i].element;
+                    const headingPosition = heading.getBoundingClientRect().top + window.pageYOffset;
+
+                    if (headingPosition <= scrollPosition + 200) {
+                        this.tocLinks.forEach(link => link.classList.remove('active'));
+                        const activeLink = this.tocLinks[i];
+                        if (activeLink) {
+                            activeLink.classList.add('active');
+                            this.scrollTOCToActive(activeLink);
+                        }
+                        break;
+                    }
+                }
+            }
+
+            scrollTOCToActive(activeLink) {
+                const tocContent = this.tocContent;
+                if (!tocContent || !activeLink) return;
+
+                const containerRect = tocContent.getBoundingClientRect();
+                const linkRect = activeLink.getBoundingClientRect();
+
+                const relativeTop = linkRect.top - containerRect.top;
+                const centerOffset = (containerRect.height / 2) - (linkRect.height / 2);
+                const targetScroll = tocContent.scrollTop + relativeTop - centerOffset;
+
+                tocContent.scrollTo({
+                    top: Math.max(0, Math.min(targetScroll, tocContent.scrollHeight - containerRect.height)),
+                    behavior: 'smooth'
+                });
+            }
+        }
+
+        function initArticle() {
+            const toc = new ArticleTOC();
+
+            if (typeof hljs !== 'undefined') {
+                document.querySelectorAll('.article-content pre code').forEach((block) => {
+                    hljs.highlightElement(block);
+
+                    const language = block.className.match(/language-(\w+)/);
+                    const langName = language ? language[1] : 'plaintext';
+
+                    const pre = block.parentElement;
+                    const wrapper = document.createElement('div');
+                    wrapper.className = 'code-block-wrapper';
+                    pre.parentNode.insertBefore(wrapper, pre);
+                    wrapper.appendChild(pre);
+
+                    const toolbar = document.createElement('div');
+                    toolbar.className = 'code-block-toolbar';
+
+                    const langLabel = document.createElement('span');
+                    langLabel.className = 'code-block-language';
+                    langLabel.textContent = langName;
+                    toolbar.appendChild(langLabel);
+
+                    const copyBtn = document.createElement('button');
+                    copyBtn.className = 'code-block-copy-btn';
+                    copyBtn.innerHTML = `<svg class="copy-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor"><rect x="9" y="9" width="13" height="13" rx="2" ry="2" stroke-width="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1" stroke-width="2"/></svg>`;
+                    toolbar.appendChild(copyBtn);
+                    wrapper.insertBefore(toolbar, pre);
+
+                    copyBtn.addEventListener('click', async () => {
+                        const code = block.textContent;
+                        try {
+                            await navigator.clipboard.writeText(code);
+                            copyBtn.innerHTML = `<svg class="copy-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor"><polyline points="20 6 9 17 4 12" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>`;
+                            setTimeout(() => {
+                                copyBtn.innerHTML = `<svg class="copy-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor"><rect x="9" y="9" width="13" height="13" rx="2" ry="2" stroke-width="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1" stroke-width="2"/></svg>`;
+                            }, 2000);
+                        } catch (err) {
+                            console.error('复制失败:', err);
+                            alert('复制失败，请手动复制');
+                        }
+                    });
+                });
+            }
+
+            document.getElementById('currentYear').textContent = new Date().getFullYear();
+
+            window.addEventListener('scroll', () => {
+                toc.highlightActiveTOC();
+            });
+
+            toc.highlightActiveTOC();
+            toc.generateTOC();
+
+            const articleTitle = document.querySelector('.article-title');
+            const tocArticleTitle = document.querySelector('.toc-article-title');
+            if (articleTitle && tocArticleTitle) {
+                tocArticleTitle.textContent = articleTitle.textContent;
+            }
+        }
+
+        function waitForLibraries() {
+            if (typeof hljs !== 'undefined') {
+                initArticle();
+            } else {
+                setTimeout(waitForLibraries, 100);
+            }
+        }
+
+        document.addEventListener('DOMContentLoaded', function () {
+            waitForLibraries();
+        });
+    </script>
+</body>
+
+</html>
