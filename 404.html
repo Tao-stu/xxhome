@@ -6,255 +6,126 @@
     <title>404 - 页面未找到 | 小夏的个人空间</title>
     <link rel="stylesheet" href="/style.css">
     <style>
-        /* 404页面专用样式 */
-        .error-page-content {
+        body {
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+        .error-content {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 2rem;
             text-align: center;
-            padding: 4rem 2rem;
         }
-
         .error-code {
-            font-size: 8rem;
-            font-weight: 800;
-            line-height: 1;
-            background: linear-gradient(135deg, #7aa2f7 0%, #bb9af7 50%, #7dcfff 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            margin-bottom: 1rem;
-            animation: float 3s ease-in-out infinite;
-        }
-
-        .light .error-code {
-            background: linear-gradient(135deg, #2563eb 0%, #7c3aed 50%, #06b6d4 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
-
-        @keyframes float {
-            0%, 100% { transform: translateY(0); }
-            50% { transform: translateY(-10px); }
-        }
-
-        .error-title {
-            font-size: 2rem;
+            font-size: 6rem;
             font-weight: bold;
             color: #7dcfff;
-            margin-bottom: 0.75rem;
+            margin-bottom: 1rem;
+            line-height: 1;
         }
-
-        .light .error-title {
+        .light .error-code {
             color: #2563eb;
         }
-
-        .error-message {
-            font-size: 1.125rem;
+        .error-title {
+            font-size: 1.5rem;
+            font-weight: bold;
             color: #c0caf5;
             margin-bottom: 0.5rem;
         }
-
+        .light .error-title {
+            color: #1f2937;
+        }
+        .error-message {
+            color: #a9b1d6;
+            margin-bottom: 2rem;
+            max-width: 500px;
+        }
         .light .error-message {
             color: #6b7280;
         }
-
-        .error-description {
-            font-size: 0.9375rem;
-            color: #a9b1d6;
-            margin-bottom: 2.5rem;
-            max-width: 500px;
-            margin-left: auto;
-            margin-right: auto;
-        }
-
-        .light .error-description {
-            color: #9ca3af;
-        }
-
-        .error-actions {
+        .error-links {
             display: flex;
             gap: 1rem;
-            justify-content: center;
             flex-wrap: wrap;
-            margin-top: 2rem;
+            justify-content: center;
         }
-
-        .error-icon {
-            font-size: 4rem;
-            margin-bottom: 1.5rem;
-            display: block;
-            animation: pulse 2s ease-in-out infinite;
+        .error-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.5rem 1rem;
+            border-radius: 0.5rem;
+            background: rgba(122, 162, 247, 0.1);
+            color: #7aa2f7;
+            text-decoration: none;
+            font-size: 0.875rem;
+            transition: all 0.2s;
         }
-
-        @keyframes pulse {
-            0%, 100% { transform: scale(1); opacity: 1; }
-            50% { transform: scale(1.1); opacity: 0.8; }
+        .light .error-link {
+            background: rgba(37, 99, 235, 0.1);
+            color: #2563eb;
         }
-
-        /* 响应式 */
-        @media (max-width: 768px) {
-            .error-page-content {
-                padding: 3rem 1.5rem;
-            }
-
-            .error-code {
-                font-size: 6rem;
-            }
-
-            .error-title {
-                font-size: 1.5rem;
-            }
-
-            .error-message {
-                font-size: 1rem;
-            }
-
-            .error-description {
-                font-size: 0.875rem;
-            }
-
-            .error-actions {
-                flex-direction: column;
-                align-items: center;
-            }
-
-            .error-actions .cta-button {
-                width: 100%;
-                max-width: 280px;
-                justify-content: center;
-            }
+        .error-link:hover {
+            background: rgba(122, 162, 247, 0.2);
         }
-
+        .light .error-link:hover {
+            background: rgba(37, 99, 235, 0.2);
+        }
+        .error-link svg {
+            width: 1rem;
+            height: 1rem;
+        }
         @media (max-width: 480px) {
             .error-code {
-                font-size: 4.5rem;
+                font-size: 4rem;
             }
-
-            .error-icon {
-                font-size: 3rem;
+            .error-title {
+                font-size: 1.25rem;
+            }
+            .error-links {
+                flex-direction: column;
+                width: 100%;
+            }
+            .error-link {
+                width: 100%;
+                max-width: 200px;
+                justify-content: center;
             }
         }
     </style>
 </head>
 <body class="dark">
-    <!-- 导航栏 -->
-    <nav class="navbar">
-        <div class="container">
-            <div class="nav-content">
-                <!-- 桌面端导航 -->
-                <div class="nav-pills">
-                    <a href="/" class="nav-link">主页</a>
-                    <a href="/blog" class="nav-link">文章</a>
-                    <a href="/guestbook" class="nav-link">留言</a>
-                    <a href="/about" class="nav-link">关于</a>
-                </div>
-
-                <!-- 右上角控制区 -->
-                <div class="nav-controls">
-                    <button class="theme-toggle" id="theme-toggle" aria-label="切换主题">
-                        <svg class="moon-icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z" />
-                        </svg>
-                        <svg class="sun-icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z" />
-                        </svg>
-                    </button>
-                    <button class="mobile-menu-toggle" id="mobile-menu-toggle" aria-label="菜单">
-                        <svg class="hamburger-icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
-                        </svg>
-                        <svg class="close-icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
-                        </svg>
-                    </button>
-                </div>
-
-                <!-- 移动端菜单 -->
-                <div class="mobile-nav" id="mobile-nav">
-                    <a href="/" class="mobile-nav-link">主页</a>
-                    <a href="/blog" class="mobile-nav-link">文章</a>
-                    <a href="/guestbook" class="mobile-nav-link">留言</a>
-                    <a href="/about" class="mobile-nav-link">关于</a>
-                </div>
-            </div>
+    <div class="error-content">
+        <div class="error-code">404</div>
+        <h1 class="error-title">页面未找到</h1>
+        <p class="error-message">抱歉，您访问的页面不存在</p>
+        <div class="error-links">
+            <a href="/" class="error-link">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" />
+                </svg>
+                返回首页
+            </a>
+            <a href="/blog" class="error-link">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 20H5a2 2 0 01-2-2V6a2 2 0 012-2h10a2 2 0 012 2v1m2 13a2 2 0 01-2-2V7m2 13a2 2 0 002-2V9a2 2 0 00-2-2h-2m-4-3H9M7 16h6M7 8h6v4H7V8z" />
+                </svg>
+                浏览文章
+            </a>
         </div>
-    </nav>
-
-    <!-- 主内容区 -->
-    <main class="main-content">
-        <div class="container">
-            <div class="article-container">
-                <div class="article-card">
-                    <div class="error-page-content">
-                        <div class="error-icon">🔍</div>
-                        <div class="error-code">404</div>
-                        <h1 class="error-title">页面未找到</h1>
-                        <p class="error-message">抱歉，您访问的页面不存在</p>
-                        <p class="error-description">可能是输入的网址有误，或者该页面已被删除、移动或重命名</p>
-                        <div class="error-actions">
-                            <a href="/" class="cta-button">
-                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" style="width: 1.25rem; height: 1.25rem;">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" />
-                                </svg>
-                                返回首页
-                            </a>
-                            <a href="/blog" class="cta-button">
-                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" style="width: 1.25rem; height: 1.25rem;">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 20H5a2 2 0 01-2-2V6a2 2 0 012-2h10a2 2 0 012 2v1m2 13a2 2 0 01-2-2V7m2 13a2 2 0 002-2V9a2 2 0 00-2-2h-2m-4-3H9M7 16h6M7 8h6v4H7V8z" />
-                                </svg>
-                                浏览文章
-                            </a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </main>
-
-    <!-- 页脚 -->
-    <footer class="footer">
-        <div class="container">
-            <p>© 2025 小夏的个人空间 · 保留所有权利</p>
-        </div>
-    </footer>
+    </div>
 
     <script>
-        // 主题切换
-        const themeToggle = document.getElementById('theme-toggle');
-        const htmlElement = document.documentElement;
-
         // 检查本地存储的主题
         const savedTheme = localStorage.getItem('theme') || 'dark';
-        htmlElement.classList.remove('dark', 'light');
-        htmlElement.classList.add(savedTheme);
+        document.documentElement.classList.remove('dark', 'light');
+        document.documentElement.classList.add(savedTheme);
         document.body.classList.remove('dark', 'light');
         document.body.classList.add(savedTheme);
-
-        themeToggle.addEventListener('click', () => {
-            const currentTheme = htmlElement.classList.contains('dark') ? 'dark' : 'light';
-            const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
-            htmlElement.classList.remove(currentTheme);
-            htmlElement.classList.add(newTheme);
-            document.body.classList.remove(currentTheme);
-            document.body.classList.add(newTheme);
-            localStorage.setItem('theme', newTheme);
-        });
-
-        // 移动端菜单
-        const mobileMenuToggle = document.getElementById('mobile-menu-toggle');
-        const mobileNav = document.getElementById('mobile-nav');
-
-        mobileMenuToggle.addEventListener('click', () => {
-            mobileMenuToggle.classList.toggle('open');
-            mobileNav.classList.toggle('show');
-        });
-
-        // 点击链接后关闭移动端菜单
-        mobileNav.querySelectorAll('a').forEach(link => {
-            link.addEventListener('click', () => {
-                mobileMenuToggle.classList.remove('open');
-                mobileNav.classList.remove('show');
-            });
-        });
     </script>
 </body>
 </html>
