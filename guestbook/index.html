@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/jpeg" href="/img/LOGO.jpg">
+    <title>留言 - 小夏的个人空间</title>
+    <!-- 引入 Waline 样式 -->
+    <link rel="stylesheet" href="https://unpkg.com/@waline/client@v3/dist/waline.css"/>
+    <link rel="stylesheet" href="../style.css">
+</head>
+
+<body>
+    <!-- 导航栏 -->
+    <nav class="navbar" id="navbar">
+        <div class="container">
+            <div class="nav-content">
+                <!-- 桌面端导航 -->
+                <div class="nav-pills desktop-nav">
+                    <a href="/" class="nav-link" data-page="home">主页</a>
+                    <a href="/blog" class="nav-link" data-page="blog">文章</a>
+                    <a href="/guestbook" class="nav-link active" data-page="guestbook">留言</a>
+                    <a href="/about" class="nav-link" data-page="about">关于</a>
+                </div>
+
+                <!-- 右上角控制区 -->
+                <div class="nav-controls">
+                    <button id="theme-toggle" class="theme-toggle" title="切换主题">
+                        <svg class="moon-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z" />
+                        </svg>
+                        <svg class="sun-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z" />
+                        </svg>
+                    </button>
+
+                    <!-- 移动端菜单按钮 -->
+                    <button id="mobile-menu-toggle" class="mobile-menu-toggle">
+                        <svg class="hamburger-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M4 6h16M4 12h16M4 18h16" />
+                        </svg>
+                        <svg class="close-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M6 18L18 6M6 6l12 12" />
+                        </svg>
+                    </button>
+                </div>
+
+                <!-- 移动端菜单 -->
+                <div class="mobile-nav" id="mobile-nav">
+                    <a href="/" class="mobile-nav-link" data-page="home">主页</a>
+                    <a href="/blog" class="mobile-nav-link" data-page="blog">文章</a>
+                    <a href="./" class="mobile-nav-link active" data-page="guestbook">留言</a>
+                    <a href="../about/" class="mobile-nav-link" data-page="about">关于</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- 主内容区 -->
+    <main class="main-content">
+        <div class="container">
+            <!-- 页面标题 -->
+            <div class="page-header">
+                <h1>留言</h1>
+                <p class="page-subtitle">如果你有什么想要跟我说的，记得留言哦</p>
+            </div>
+
+            <!-- 留言列表 -->
+            <div class="guestbook-section">
+                <div class="guestbook-header">
+                    <h2 class="guestbook-title">留言列表</h2>
+                </div>
+
+                <!-- Waline 评论容器 -->
+                <div id="waline" class="waline-container"></div>
+
+                <!-- 返回顶部按钮 -->
+                <button id="back-to-top" class="back-to-top">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M5 10l7-7m0 0l7 7m-7-7v18" />
+                    </svg>
+                </button>
+            </div>
+        </div>
+    </main>
+
+    <!-- 页脚 -->
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2026 小夏的个人空间</p>
+        </div>
+    </footer>
+
+    <!-- 引入 Waline -->
+    <script type="module">
+        import { init } from 'https://unpkg.com/@waline/client@v3/dist/waline.js';
+
+        // 初始化 Waline
+        init({
+            el: '#waline',
+            serverURL: 'https://waline-plum-beta.vercel.app',
+            lang: 'zh-CN',
+            dark: 'html.dark',
+            emoji: [
+                '//unpkg.com/@waline/emojis@1.2.0/weibo',
+                '//unpkg.com/@waline/emojis@1.2.0/alus',
+                '//unpkg.com/@waline/emojis@1.2.0/bilibili',
+                '//unpkg.com/@waline/emojis@1.2.0/qq',
+                '//unpkg.com/@waline/emojis@1.2.0/tieba',
+            ],
+            imageUploader: false,
+            highlighter: false,
+            mathTagSupport: false,
+            search: false,
+            reaction: true,
+            recaptchaV3Key: false,
+            wordLimit: 500,
+            requiredMeta: ['nick', 'mail'],
+            avatar: 'identicon',
+            login: 'enable',
+            pageSize: 10,
+        });
+    </script>
+    <script src="../script.js"></script>
+</body>
+
+</html>

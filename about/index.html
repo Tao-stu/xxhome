@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/jpeg" href="/img/LOGO.jpg">
+    <title>关于 - 小夏的个人空间</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <!-- 导航栏 -->
+    <nav class="navbar" id="navbar">
+        <div class="container">
+            <div class="nav-content">
+                <!-- 桌面端导航 -->
+                <div class="nav-pills desktop-nav">
+                    <a href="/" class="nav-link" data-page="home">主页</a>
+                    <a href="/blog" class="nav-link" data-page="blog">文章</a>
+                    <a href="/guestbook" class="nav-link" data-page="guestbook">留言</a>
+                    <a href="/about" class="nav-link active" data-page="about">关于</a>
+                </div>
+
+                <!-- 右上角控制区 -->
+                <div class="nav-controls">
+                    <button id="theme-toggle" class="theme-toggle" title="切换主题">
+                        <svg class="moon-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z" />
+                        </svg>
+                        <svg class="sun-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z" />
+                        </svg>
+                    </button>
+
+                    <!-- 移动端菜单按钮 -->
+                    <button id="mobile-menu-toggle" class="mobile-menu-toggle">
+                        <svg class="hamburger-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M4 6h16M4 12h16M4 18h16" />
+                        </svg>
+                        <svg class="close-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M6 18L18 6M6 6l12 12" />
+                        </svg>
+                    </button>
+                </div>
+
+                <!-- 移动端菜单 -->
+                <div class="mobile-nav" id="mobile-nav">
+                    <a href="/" class="mobile-nav-link" data-page="home">主页</a>
+                    <a href="/blog" class="mobile-nav-link" data-page="blog">文章</a>
+                    <a href="../guestbook/" class="mobile-nav-link" data-page="guestbook">留言</a>
+                    <a href="./" class="mobile-nav-link active" data-page="about">关于</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- 主内容区 -->
+    <main class="main-content">
+        <div class="container">
+            <!-- 页面标题 -->
+            <div class="page-header">
+                <h1>关于</h1>
+                <p class="page-subtitle">我和本站的一些事</p>
+
+            </div>
+            <!-- 个人信息卡片 -->
+            <div class="card about-section-card">
+                <div class="card-bg-image" style="background-image: url(/img/info%20personal.png)"></div>
+                <div class="card-content">
+                    <h2 class="card-title" style="margin-bottom: 1rem;">我 | For Me</h2>
+                    <div class="card-info">
+                        <p class="card-info-text">大家好，可以称呼我小夏</p>
+                        <p class="card-info-text">我线下内向线上开放，被人称作闷骚</p>
+                        <p class="card-info-text">喜欢一个人呆着，喜欢自由，不喜欢接触新事物</p>
+                        <p class="card-info-text">喜欢安静的环境，不喜欢喧嚣的场合</p>
+                        <p class="card-info-text">游戏的话，常玩王者荣耀，由于晕3D，Minecraft只能短时间玩一会</p>
+                    </div>
+                </div>
+            </div>
+
+
+            <!-- 本站历史 -->
+            <div class="card about-section-card">
+                <h2 class="card-title" style="margin-bottom: 1rem;">本站历史 | Site History</h2>
+                <div class="history-timeline">
+
+                    <div class="history-item">
+                        <div class="history-date">2025</div>
+                        <div class="history-content">
+                            <h3>Tao的博客</h3>
+                            <p>基于<a href="https://github.com/DaZiDian" target="_blank" rel="noopener noreferrer"
+                                    class="copyright-link">DaZiDian</a>的博客系统，简洁高效</p>
+                        </div>
+                    </div>
+
+                    <div class="history-item">
+                        <div class="history-date">2026</div>
+                        <div class="history-content">
+                            <h3>小夏的个人空间</h3>
+                            <p>全新的开始，记录生活与技术点滴</p>
+                            <p>留言板采用的是Waline评论系统</p>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+            <!-- 友情链接 -->
+            <div class="card about-section-card">
+                <h2 class="card-title" style="margin-bottom: 1rem;">友情链接 | Friends</h2>
+                <div class="friend-links">
+                    <a href="https://dazidian-github-io.vercel.app/" target="_blank" rel="noopener noreferrer"
+                        class="friend-link-card">
+                        <img src="/img/friends/DaZiDian.jpg" alt="DaZiDian" class="friend-avatar">
+                        <span class="friend-name">DaZiDian</span>
+                    </a>
+                    <a href="https://5ime.cn" target="_blank" rel="noopener noreferrer" class="friend-link-card">
+                        <img src="/img/friends/iami.jpg" alt="5ime" class="friend-avatar">
+                        <span class="friend-name">5ime</span>
+                    </a>
+                </div>
+            </div>
+
+            <!-- 申请友链 -->
+            <div class="card about-section-card">
+                <h2 class="card-title" style="margin-bottom: 1rem;">申请友链 | Apply for Friend Link</h2>
+                <div class="friend-link-apply">
+                    <p style="color: #c0caf5; margin-bottom: 1rem;">请在留言板留下以下格式的内容：</p>
+                    <pre style="background: rgba(41, 46, 66, 0.5); padding: 1rem; border-radius: 0.75rem; border: 1px solid rgba(122, 162, 247, 0.15); color: #c0caf5; font-family: 'Microsoft YaHei', 'PingFang SC', 'Helvetica Neue', Arial, sans-serif; white-space: pre-wrap; overflow-x: auto;">
+姓名:小夏
+网站:https://taoi.me
+头像:https://avatars.githubusercontent.com/u/224368100?v=4&size=64</pre>
+                </div>
+
+
+
+            </div>
+    </main>
+
+    <!-- 页脚 -->
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2026 小夏的个人空间</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
