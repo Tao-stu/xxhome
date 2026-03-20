@@ -1,8 +1,8 @@
-# 将 /blog/ 重定向到 /blog（带斜杠重定向到不带斜杠）
-/blog/ /blog 301
+# 将 /blog 重定向到 /blog/（不带斜杠重定向到带斜杠）
+/blog /blog/ 301
 
-# 将 /about/ 重定向到 /about
-/about/ /about 301
+# 将 /about 重定向到 /about/
+/about /about/ 301
 
-# 将 /guestbook/ 重定向到 /guestbook
-/guestbook/ /guestbook 301
+# 将 /guestbook 重定向到 /guestbook/
+/guestbook /guestbook/ 301
