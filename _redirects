@@ -1,0 +1,8 @@
+# 404 页面重定向 - 所有未匹配的路径都重定向到 404.html
+/* /404.html 404
+
+# 目录重定向 - 不带斜杠重定向到带斜杠
+/blog /blog/ 301
+/about /about/ 301
+/guestbook /guestbook/ 301
+/article /article/ 301
