@@ -2947,38 +2947,6 @@ body {
     .toc-content {
         overflow-y: visible;
     }
-
-    .toc-header {
-        display: none;
-    }
-
-    .toc-back-btn {
-        display: none;
-    }
-
-    .toc-article-title {
-        font-size: 1.125rem;
-        margin-bottom: 1rem;
-        text-align: center;
-        color: #7dcfff;
-    }
-
-    .light .toc-article-title {
-        color: #2563eb;
-    }
-
-    .toc-link.active::before {
-        display: none;
-    }
-
-    .toc-number {
-        display: none;
-    }
-
-    .toc-level-3,
-    .toc-level-4 {
-        padding-left: 0;
-    }
 }
 
 /* 目录滚动条样式 */
