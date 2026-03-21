@@ -69,6 +69,32 @@
     height: 24px;
 }
 
+/* ===== 图片查看器移动端适配 ===== */
+@media (max-width: 768px) {
+    .image-viewer-content {
+        padding: 1rem;
+    }
+
+    .image-viewer-img {
+        max-width: 95vw;
+        max-height: 90vh;
+        border-radius: 4px;
+    }
+
+    .image-viewer-close {
+        top: 1rem;
+        right: 1rem;
+        width: 40px;
+        height: 40px;
+        background: rgba(255, 255, 255, 0.15);
+    }
+
+    .image-viewer-close svg {
+        width: 20px;
+        height: 20px;
+    }
+}
+
 /* ===== 全局样式结束 ===== */
 * {
     margin: 0;
@@ -2273,6 +2299,39 @@ body {
     border-radius: 0.5rem;
     max-width: 100%;
     height: auto;
+    cursor: pointer;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.article-content img:hover {
+    transform: scale(1.02);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
+}
+
+@media (max-width: 768px) {
+    .article-content img:hover {
+        transform: none;
+        box-shadow: none;
+    }
+
+    /* 移动端图片查看提示 */
+    .article-content figure {
+        position: relative;
+    }
+
+    .article-content figure::after {
+        content: '点击查看大图';
+        position: absolute;
+        bottom: 0.5rem;
+        right: 0.5rem;
+        background: rgba(0, 0, 0, 0.6);
+        color: #fff;
+        padding: 0.25rem 0.5rem;
+        border-radius: 0.25rem;
+        font-size: 0.75rem;
+        pointer-events: none;
+        opacity: 0.8;
+    }
 }
 
 /* 表格 */

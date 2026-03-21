@@ -3,6 +3,7 @@ class ImageViewer {
     constructor() {
         this.viewer = null;
         this.createViewer();
+        this.addTouchSupport();
     }
 
     createViewer() {
@@ -37,6 +38,33 @@ class ImageViewer {
         });
     }
 
+    addTouchSupport() {
+        // 移动端触摸关闭支持
+        let lastTap = 0;
+        let tapTimeout;
+
+        this.viewer.addEventListener('touchend', (e) => {
+            const currentTime = new Date().getTime();
+            const tapLength = currentTime - lastTap;
+            
+            // 双击关闭
+            if (tapLength < 300 && tapLength > 0) {
+                e.preventDefault();
+                this.close();
+            }
+            
+            lastTap = currentTime;
+            
+            // 轻触背景关闭
+            if (e.target === this.viewer) {
+                clearTimeout(tapTimeout);
+                tapTimeout = setTimeout(() => {
+                    this.close();
+                }, 300);
+            }
+        });
+    }
+
     open(src, alt) {
         const img = this.viewer.querySelector('.image-viewer-img');
         img.src = src;
@@ -58,9 +86,20 @@ function initImageViewer() {
     const images = document.querySelectorAll('.article-content figure img');
     images.forEach(img => {
         img.style.cursor = 'pointer';
+        
+        // 桌面端点击事件
         img.addEventListener('click', (e) => {
             e.preventDefault();
             viewer.open(img.src, img.alt);
+        });
+        
+        // 移动端触摸事件支持
+        img.addEventListener('touchend', (e) => {
+            e.preventDefault();
+            // 防止与click事件冲突
+            setTimeout(() => {
+                viewer.open(img.src, img.alt);
+            }, 100);
         });
     });
 }
