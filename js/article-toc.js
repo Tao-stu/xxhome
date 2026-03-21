@@ -1,3 +1,70 @@
+// ==================== 图片放大功能 ====================
+class ImageViewer {
+    constructor() {
+        this.viewer = null;
+        this.createViewer();
+    }
+
+    createViewer() {
+        // 创建图片查看器容器
+        this.viewer = document.createElement('div');
+        this.viewer.className = 'image-viewer';
+        this.viewer.innerHTML = `
+            <div class="image-viewer-content">
+                <img class="image-viewer-img" src="" alt="">
+                <button class="image-viewer-close">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
+                    </svg>
+                </button>
+            </div>
+        `;
+        document.body.appendChild(this.viewer);
+
+        // 点击关闭按钮或背景关闭
+        this.viewer.querySelector('.image-viewer-close').addEventListener('click', () => this.close());
+        this.viewer.addEventListener('click', (e) => {
+            if (e.target === this.viewer || e.target.classList.contains('image-viewer-content')) {
+                this.close();
+            }
+        });
+
+        // ESC 键关闭
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') {
+                this.close();
+            }
+        });
+    }
+
+    open(src, alt) {
+        const img = this.viewer.querySelector('.image-viewer-img');
+        img.src = src;
+        img.alt = alt || '';
+        this.viewer.classList.add('active');
+        document.body.style.overflow = 'hidden';
+    }
+
+    close() {
+        this.viewer.classList.remove('active');
+        document.body.style.overflow = '';
+    }
+}
+
+function initImageViewer() {
+    const viewer = new ImageViewer();
+
+    // 为文章中的所有图片添加点击事件
+    const images = document.querySelectorAll('.article-content figure img');
+    images.forEach(img => {
+        img.style.cursor = 'pointer';
+        img.addEventListener('click', (e) => {
+            e.preventDefault();
+            viewer.open(img.src, img.alt);
+        });
+    });
+}
+
 // ==================== 目录功能 ====================
 class ArticleTOC {
     constructor() {
@@ -208,4 +275,5 @@ function waitForLibraries() {
 
 document.addEventListener('DOMContentLoaded', function () {
     waitForLibraries();
+    initImageViewer();
 });

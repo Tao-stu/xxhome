@@ -115,7 +115,7 @@
                         <p>下载连接: <a href="https://download.vulnhub.com/meandmygirlfriend/Me-and-My-Girlfriend-1.ova" target="_blank" rel="noopener noreferrer">https://download.vulnhub.com/meandmygirlfriend/Me-and-My-Girlfriend-1.ova</a></p>
 
                         <figure>
-                            <img src="/img/girlfriend/image-20260320200515358.png" alt="靶场封面">
+                            <img src="https://xxhome-pic.oss-cn-qingdao.aliyuncs.com/xxhome/girlfriend/image-20260320200515358.png" alt="靶场封面">
                             <figcaption>图注：靶场封面</figcaption>
                         </figure>
 
@@ -124,21 +124,21 @@
                         <p>下载后双击</p>
 
                         <figure>
-                            <img src="/img/girlfriend/image-20260320211224505.png" alt="导入虚拟机">
+                            <img src="https://xxhome-pic.oss-cn-qingdao.aliyuncs.com/xxhome/girlfriend/image-20260320211224505.png" alt="导入虚拟机">
                             <figcaption>图注：导入虚拟机</figcaption>
                         </figure>
 
                         <p>导入Vmware</p>
 
                         <figure>
-                            <img src="/img/girlfriend/image-20260320211135369.png" alt="Vmware">
+                            <img src="https://xxhome-pic.oss-cn-qingdao.aliyuncs.com/xxhome/girlfriend/image-20260320211135369.png" alt="Vmware">
                             <figcaption>图注：Vmware</figcaption>
                         </figure>
 
                         <p>然后为这个虚拟机选择仅主机网卡</p>
 
                         <figure>
-                            <img src="/img/girlfriend/image-20260320211421945.png" alt="仅主机网卡">
+                            <img src="https://xxhome-pic.oss-cn-qingdao.aliyuncs.com/xxhome/girlfriend/image-20260320211421945.png" alt="仅主机网卡">
                             <figcaption>图注：仅主机网卡</figcaption>
                         </figure>
 
@@ -156,12 +156,12 @@
 nmap 192.168.19.0/24</code></pre>
 
                         <figure>
-                            <img src="/img/girlfriend/image-20260320212854723.png" alt="arp-scan扫描">
+                            <img src="https://xxhome-pic.oss-cn-qingdao.aliyuncs.com/xxhome/girlfriend/image-20260320212854723.png" alt="arp-scan扫描">
                             <figcaption>图注：arp-scan扫描</figcaption>
                         </figure>
 
                         <figure>
-                            <img src="/img/girlfriend/image-20260320213347678.png" alt="nmap扫描">
+                            <img src="https://xxhome-pic.oss-cn-qingdao.aliyuncs.com/xxhome/girlfriend/image-20260320213347678.png" alt="nmap扫描">
                             <figcaption>图注：nmap扫描</figcaption>
                         </figure>
 
@@ -174,35 +174,35 @@ nmap 192.168.19.0/24</code></pre>
                         <p>打开浏览器访问一下80端口</p>
 
                         <figure>
-                            <img src="/img/girlfriend/image-20260320232746500.png" alt="访问80端口">
+                            <img src="https://xxhome-pic.oss-cn-qingdao.aliyuncs.com/xxhome/girlfriend/image-20260320232746500.png" alt="访问80端口">
                             <figcaption>图注：访问80端口</figcaption>
                         </figure>
 
                         <p>查看一下页面源码</p>
 
                         <figure>
-                            <img src="/img/girlfriend/image-20260320232757169.png" alt="页面源码">
+                            <img src="https://xxhome-pic.oss-cn-qingdao.aliyuncs.com/xxhome/girlfriend/image-20260320232757169.png" alt="页面源码">
                             <figcaption>图注：页面源码</figcaption>
                         </figure>
 
                         <p>简单的XFF，我们使用插件将访问IP改为127.0.0.1(X-Forwarded-For Header)</p>
 
                         <figure>
-                            <img src="/img/girlfriend/image-20260320232525606.png" alt="XFF插件">
+                            <img src="https://xxhome-pic.oss-cn-qingdao.aliyuncs.com/xxhome/girlfriend/image-20260320232525606.png" alt="XFF插件">
                             <figcaption>图注：XFF插件</figcaption>
                         </figure>
 
                         <p>IP填127.0.0.1</p>
 
                         <figure>
-                            <img src="/img/girlfriend/image-20260320232705707.png" alt="配置IP">
+                            <img src="https://xxhome-pic.oss-cn-qingdao.aliyuncs.com/xxhome/girlfriend/image-20260320232705707.png" alt="配置IP">
                             <figcaption>图注：配置IP</figcaption>
                         </figure>
 
                         <p>再次刷新网页，显示出网页内容</p>
 
                         <figure>
-                            <img src="/img/girlfriend/image-20260320232940891.png" alt="网页内容">
+                            <img src="https://xxhome-pic.oss-cn-qingdao.aliyuncs.com/xxhome/girlfriend/image-20260320232940891.png" alt="网页内容">
                             <figcaption>图注：网页内容</figcaption>
                         </figure>
 
@@ -213,21 +213,21 @@ nmap 192.168.19.0/24</code></pre>
                         <pre><code class="language-bash">dirsearch -u "http://192.168.19.129/?page=index"</code></pre>
 
                         <figure>
-                            <img src="/img/girlfriend/image-20260320233618200.png" alt="dirsearch扫描">
+                            <img src="https://xxhome-pic.oss-cn-qingdao.aliyuncs.com/xxhome/girlfriend/image-20260320233618200.png" alt="dirsearch扫描">
                             <figcaption>图注：dirsearch扫描</figcaption>
                         </figure>
 
                         <p>将扫描存在的结果进行访问，在robots.txt中发现信息</p>
 
                         <figure>
-                            <img src="/img/girlfriend/image-20260320233755441.png" alt="robots.txt">
+                            <img src="https://xxhome-pic.oss-cn-qingdao.aliyuncs.com/xxhome/girlfriend/image-20260320233755441.png" alt="robots.txt">
                             <figcaption>图注：robots.txt</figcaption>
                         </figure>
 
                         <p>访问heyhoo.txt</p>
 
                         <figure>
-                            <img src="/img/girlfriend/image-20260320233921452.png" alt="heyhoo.txt">
+                            <img src="https://xxhome-pic.oss-cn-qingdao.aliyuncs.com/xxhome/girlfriend/image-20260320233921452.png" alt="heyhoo.txt">
                             <figcaption>图注：heyhoo.txt</figcaption>
                         </figure>
 
@@ -238,28 +238,28 @@ nmap 192.168.19.0/24</code></pre>
                         <p>这里选择注册一个用户并登录，查看登陆后有没有什么疑点</p>
 
                         <figure>
-                            <img src="/img/girlfriend/image-20260320234309924.png" alt="注册登录">
+                            <img src="https://xxhome-pic.oss-cn-qingdao.aliyuncs.com/xxhome/girlfriend/image-20260320234309924.png" alt="注册登录">
                             <figcaption>图注：注册登录</figcaption>
                         </figure>
 
                         <p>登陆后经过观察，发现是get传参</p>
 
                         <figure>
-                            <img src="/img/girlfriend/image-20260320234606903.png" alt="GET传参">
+                            <img src="https://xxhome-pic.oss-cn-qingdao.aliyuncs.com/xxhome/girlfriend/image-20260320234606903.png" alt="GET传参">
                             <figcaption>图注：GET传参</figcaption>
                         </figure>
 
                         <p>也许管理员用户就隐藏在其中，将id改成1试试</p>
 
                         <figure>
-                            <img src="/img/girlfriend/image-20260320234651293.png" alt="修改id">
+                            <img src="https://xxhome-pic.oss-cn-qingdao.aliyuncs.com/xxhome/girlfriend/image-20260320234651293.png" alt="修改id">
                             <figcaption>图注：修改id</figcaption>
                         </figure>
 
                         <p>果然，用户名也跟着发生了改变，查看页面源码，将input标签的类型改为text查看密码</p>
 
                         <figure>
-                            <img src="/img/girlfriend/image-20260320234828926.png" alt="查看密码">
+                            <img src="https://xxhome-pic.oss-cn-qingdao.aliyuncs.com/xxhome/girlfriend/image-20260320234828926.png" alt="查看密码">
                             <figcaption>图注：查看密码</figcaption>
                         </figure>
 
@@ -295,7 +295,7 @@ alice
                         <pre><code class="language-bash">ssh alice@192.168.19.129</code></pre>
 
                         <figure>
-                            <img src="/img/girlfriend/image-20260320235359972.png" alt="SSH登录">
+                            <img src="https://xxhome-pic.oss-cn-qingdao.aliyuncs.com/xxhome/girlfriend/image-20260320235359972.png" alt="SSH登录">
                             <figcaption>图注：SSH登录</figcaption>
                         </figure>
 
@@ -304,7 +304,7 @@ alice
                         <p>使用<code>ls -a</code>查看用户目录有什么文件</p>
 
                         <figure>
-                            <img src="/img/girlfriend/image-20260320235813143.png" alt="查看文件">
+                            <img src="https://xxhome-pic.oss-cn-qingdao.aliyuncs.com/xxhome/girlfriend/image-20260320235813143.png" alt="查看文件">
                             <figcaption>图注：查看文件</figcaption>
                         </figure>
 
@@ -315,7 +315,7 @@ alice
                         <p>因为是web服务器，查看一下apache的目录</p>
 
                         <figure>
-                            <img src="/img/girlfriend/image-20260321000119720.png" alt="apache目录">
+                            <img src="https://xxhome-pic.oss-cn-qingdao.aliyuncs.com/xxhome/girlfriend/image-20260321000119720.png" alt="apache目录">
                             <figcaption>图注：apache目录</figcaption>
                         </figure>
 
@@ -324,14 +324,14 @@ alice
                         <p><code>root/ctf_pasti_bisa</code></p>
 
                         <figure>
-                            <img src="/img/girlfriend/image-20260321000226440.png" alt="提权成功">
+                            <img src="https://xxhome-pic.oss-cn-qingdao.aliyuncs.com/xxhome/girlfriend/image-20260321000226440.png" alt="提权成功">
                             <figcaption>图注：提权成功</figcaption>
                         </figure>
 
                         <p>提权成功，寻找flag2</p>
 
                         <figure>
-                            <img src="/img/girlfriend/image-20260321000337842.png" alt="flag2">
+                            <img src="https://xxhome-pic.oss-cn-qingdao.aliyuncs.com/xxhome/girlfriend/image-20260321000337842.png" alt="flag2">
                             <figcaption>图注：flag2</figcaption>
                         </figure>
 
