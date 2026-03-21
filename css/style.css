@@ -2313,25 +2313,6 @@ body {
         transform: none;
         box-shadow: none;
     }
-
-    /* 移动端图片查看提示 */
-    .article-content figure {
-        position: relative;
-    }
-
-    .article-content figure::after {
-        content: '点击查看大图';
-        position: absolute;
-        bottom: 0.5rem;
-        right: 0.5rem;
-        background: rgba(0, 0, 0, 0.6);
-        color: #fff;
-        padding: 0.25rem 0.5rem;
-        border-radius: 0.25rem;
-        font-size: 0.75rem;
-        pointer-events: none;
-        opacity: 0.8;
-    }
 }
 
 /* 表格 */
