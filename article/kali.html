@@ -1,0 +1,572 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kali Linux的安装(超详细) - 小夏的个人空间</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="icon" type="image/jpeg" href="/img/LOGO.jpg">
+    <script src="../js/lib/highlight.min.js" defer></script>
+</head>
+
+<body>
+    <!-- 导航栏 -->
+    <nav class="navbar" id="navbar">
+        <div class="container">
+            <div class="nav-content">
+                <!-- 桌面端导航 -->
+                <div class="nav-pills desktop-nav">
+                    <a href="/" class="nav-link" data-page="home">主页</a>
+                    <a href="/blog" class="nav-link active" data-page="blog">文章</a>
+                    <a href="/guestbook" class="nav-link" data-page="guestbook">留言</a>
+                    <a href="/about" class="nav-link" data-page="about">关于</a>
+                </div>
+
+                <!-- 右上角控制区 -->
+                <div class="nav-controls">
+                    <button id="theme-toggle" class="theme-toggle" title="切换主题">
+                        <svg class="moon-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z" />
+                        </svg>
+                        <svg class="sun-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z" />
+                        </svg>
+                    </button>
+
+                    <!-- 移动端菜单按钮 -->
+                    <button id="mobile-menu-toggle" class="mobile-menu-toggle">
+                        <svg class="hamburger-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M4 6h16M4 12h16M4 18h16" />
+                        </svg>
+                        <svg class="close-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M6 18L18 6M6 6l12 12" />
+                        </svg>
+                    </button>
+                </div>
+
+                <!-- 移动端菜单 -->
+                <div class="mobile-nav" id="mobile-nav">
+                    <a href="/" class="mobile-nav-link" data-page="home">主页</a>
+                    <a href="/blog" class="mobile-nav-link active" data-page="blog">文章</a>
+                    <a href="/guestbook" class="mobile-nav-link" data-page="guestbook">留言</a>
+                    <a href="/about" class="mobile-nav-link" data-page="about">关于</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- 主内容区 -->
+    <main class="main-content">
+        <div class="container">
+            <div class="article-wrapper">
+                <!-- 左侧目录 -->
+                <aside class="article-toc" id="articleToc">
+                    <!-- 返回按钮 -->
+                    <a href="/blog" class="toc-back-btn">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M19 12H5M12 19l-7-7 7-7" />
+                        </svg>
+                        <span>返回文章列表</span>
+                    </a>
+
+                    <!-- 文章标题 -->
+                    <div class="toc-article-title">Kali Linux的安装(超详细)</div>
+
+                    <div class="toc-header">
+                        <svg class="toc-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M4 6h16M4 12h16M4 18h7" />
+                        </svg>
+                        <span>文章目录</span>
+                    </div>
+                    <div class="toc-content" id="tocContent"></div>
+                </aside>
+
+                <!-- 文章主体 -->
+                <article class="article">
+                    <!-- 文章头部信息 -->
+                    <div class="article-header">
+                        <div class="article-meta">
+                            <span class="article-category">分类：系统安装</span>
+                            <span class="article-date">2026 年 3 月 22 日</span>
+                        </div>
+
+                        <h1 class="article-title">Kali Linux的安装(超详细)</h1>
+
+                        <div class="article-tags">
+                            <span class="article-tag">Kali Linux</span>
+                            <span class="article-tag">虚拟机</span>
+                            <span class="article-tag">系统安装</span>
+                        </div>
+
+                        <div class="article-summary">
+                            超详细的 Kali Linux 安装教程，包括 ISO 镜像安装和虚拟机压缩包安装两种方式，以及系统汉化、创建 root 用户等配置步骤。
+                        </div>
+                    </div>
+
+                    <!-- 文章内容 -->
+                    <div class="article-content" id="articleContent">
+                        <h2 id="heading-0">下载</h2>
+
+                        <p>kali官网：<a href="https://www.kali.org/" target="_blank" rel="noopener noreferrer">https://www.kali.org/</a></p>
+
+                        <figure>
+                            <img src="https://tao-pic.pages.dev/kali/image-20260322104216667.png" alt="Kali官网首页">
+                            <figcaption>图注：Kali官网首页</figcaption>
+                        </figure>
+
+                        <p>点击download</p>
+
+                        <figure>
+                            <img src="https://tao-pic.pages.dev/kali/image-20260322104316663.png" alt="下载页面">
+                            <figcaption>图注：下载页面</figcaption>
+                        </figure>
+
+                        <p>跳转到这个页面，images是iso镜像，virtual machines是将已经安装好的vmware虚拟机文件压缩为7z，按需求选择下载</p>
+
+                        <figure>
+                            <img src="https://tao-pic.pages.dev/kali/image-20260322104510165.png" alt="kali-images">
+                            <figcaption>图注：kali-images</figcaption>
+                        </figure>
+
+                        <figure>
+                            <img src="https://tao-pic.pages.dev/kali/image-20260322104619658.png" alt="kali-vm">
+                            <figcaption>图注：kali-vm</figcaption>
+                        </figure>
+
+                        <h2 id="heading-1">ISO镜像安装</h2>
+
+                        <h3 id="heading-2">创建虚拟机</h3>
+
+                        <p>打开vmware，新建虚拟机</p>
+
+                        <figure>
+                            <img src="https://tao-pic.pages.dev/kali/image-20260322105017439.png" alt="新建虚拟机">
+                            <figcaption>图注：新建虚拟机</figcaption>
+                        </figure>
+
+                        <p>无脑下一步</p>
+
+                        <figure>
+                            <img src="https://tao-pic.pages.dev/kali/image-20260322105128063.png" alt="选择镜像文件">
+                            <figcaption>图注：选择镜像文件</figcaption>
+                        </figure>
+
+                        <p>选择镜像，kali是基于debian的操作系统，有的vmware版本识别不到，没关系，手动指定一下操作系统就好，不影响</p>
+
+                        <figure>
+                            <img src="https://tao-pic.pages.dev/kali/image-20260322105146581.png" alt="识别操作系统">
+                            <figcaption>图注：识别操作系统</figcaption>
+                        </figure>
+
+                        <p>选择操作系统类型，debian任意版本或者ubuntu都可以</p>
+
+                        <figure>
+                            <img src="https://tao-pic.pages.dev/kali/image-20260322105424333.png" alt="选择操作系统类型">
+                            <figcaption>图注：选择操作系统类型</figcaption>
+                        </figure>
+
+                        <p>建议改一下名字，为了以后方便认出，不改名无脑下一步也不影响</p>
+
+                        <figure>
+                            <img src="https://tao-pic.pages.dev/kali/image-20260322105544712.png" alt="命名虚拟机">
+                            <figcaption>图注：命名虚拟机</figcaption>
+                        </figure>
+
+                        <p>然后改一下虚拟机的存放路径，放到一个合适的位置，尽量避开C盘，放到<strong>任意</strong>位置，建议放D盘，由于我个人的原因，我就放E盘了，不一定按照我的位置来改</p>
+
+                        <figure>
+                            <img src="https://tao-pic.pages.dev/kali/image-20260322105721631.png" alt="选择存放路径">
+                            <figcaption>图注：选择存放路径</figcaption>
+                        </figure>
+
+                        <p>建议存储为单个文件，在目录中看起来比较简洁</p>
+
+                        <figure>
+                            <img src="https://tao-pic.pages.dev/kali/image-20260322105958462.png" alt="磁盘配置">
+                            <figcaption>图注：磁盘配置</figcaption>
+                        </figure>
+
+                        <p>无脑下一步，然后点击完成</p>
+
+                        <figure>
+                            <img src="https://tao-pic.pages.dev/kali/image-20260322110218514.png" alt="完成创建">
+                            <figcaption>图注：完成创建</figcaption>
+                        </figure>
+
+                        <h3 id="heading-3">开启并安装</h3>
+
+                        <p>点击开启此虚拟机</p>
+
+                        <figure>
+                            <img src="https://tao-pic.pages.dev/kali/image-20260322110344442.png" alt="开启虚拟机">
+                            <figcaption>图注：开启虚拟机</figcaption>
+                        </figure>
+
+                        <p>选择Graphical install(带图形化的安装)，第二个install不带图形化，有点不太美观，不建议新手使用</p>
+
+                        <figure>
+                            <img src="https://tao-pic.pages.dev/kali/image-20260322110428104.png" alt="安装方式选择">
+                            <figcaption>图注：安装方式选择</figcaption>
+                        </figure>
+
+                        <p>设置语言，都是天朝人士，没有特殊需求的建议使用简体中文</p>
+
+                        <figure>
+                            <img src="https://tao-pic.pages.dev/kali/image-20260322110635337.png" alt="选择语言">
+                            <figcaption>图注：选择语言</figcaption>
+                        </figure>
+
+                        <p>点击continue后，选择地区，键盘语言，按实际情况选择即可</p>
+
+                        <figure>
+                            <img src="https://tao-pic.pages.dev/kali/image-20260322110814399.png" alt="选择地区">
+                            <figcaption>图注：选择地区</figcaption>
+                        </figure>
+
+                        <figure>
+                            <img src="https://tao-pic.pages.dev/kali/image-20260322110847892.png" alt="选择键盘">
+                            <figcaption>图注：选择键盘</figcaption>
+                        </figure>
+
+                        <p>然后耐心等待，安装介质，加载网络配置等</p>
+
+                        <figure>
+                            <img src="https://tao-pic.pages.dev/kali/image-20260322110930668.png" alt="加载组件">
+                            <figcaption>图注：加载组件</figcaption>
+                        </figure>
+
+                        <p>加载完成后，配置网络，在linux的terminal中，常见<code>root@localhost #~</code>主机名就是localhost这个位置的内容，这里我选择默认</p>
+
+                        <figure>
+                            <img src="https://tao-pic.pages.dev/kali/image-20260322111055245.png" alt="配置网络">
+                            <figcaption>图注：配置网络</figcaption>
+                        </figure>
+
+                        <p>域名留空</p>
+
+                        <figure>
+                            <img src="https://tao-pic.pages.dev/kali/image-20260322111322179.png" alt="域名配置">
+                            <figcaption>图注：域名配置</figcaption>
+                        </figure>
+
+                        <p>用户名和密码，自行创建，我这里设置的为kali/kali</p>
+
+                        <figure>
+                            <img src="https://tao-pic.pages.dev/kali/image-20260322111402206.png" alt="设置用户名">
+                            <figcaption>图注：设置用户名</figcaption>
+                        </figure>
+
+                        <figure>
+                            <img src="https://tao-pic.pages.dev/kali/image-20260322111429463.png" alt="设置密码">
+                            <figcaption>图注：设置密码</figcaption>
+                        </figure>
+
+                        <p>然后等待配置始终，挂载磁盘等</p>
+
+                        <figure>
+                            <img src="https://tao-pic.pages.dev/kali/image-20260322111507969.png" alt="分区配置">
+                            <figcaption>图注：分区配置</figcaption>
+                        </figure>
+
+                        <p>默认即可</p>
+
+                        <figure>
+                            <img src="https://tao-pic.pages.dev/kali/image-20260322111526576.png" alt="磁盘分区">
+                            <figcaption>图注：磁盘分区</figcaption>
+                        </figure>
+
+                        <figure>
+                            <img src="https://tao-pic.pages.dev/kali/image-20260322111552633.png" alt="写入磁盘">
+                            <figcaption>图注：写入磁盘</figcaption>
+                        </figure>
+
+                        <figure>
+                            <img src="https://tao-pic.pages.dev/kali/image-20260322111610690.png" alt="确认写入">
+                            <figcaption>图注：确认写入</figcaption>
+                        </figure>
+
+                        <figure>
+                            <img src="https://tao-pic.pages.dev/kali/image-20260322111623808.png" alt="其他设置">
+                            <figcaption>图注：其他设置</figcaption>
+                        </figure>
+
+                        <p>这里有防呆设置，<strong>一定要将否改为是</strong></p>
+
+                        <figure>
+                            <img src="https://tao-pic.pages.dev/kali/image-20260322111714119.png" alt="确认修改">
+                            <figcaption>图注：确认修改</figcaption>
+                        </figure>
+
+                        <figure>
+                            <img src="https://tao-pic.pages.dev/kali/image-20260322111807769.png" alt="安装引导">
+                            <figcaption>图注：安装引导</figcaption>
+                        </figure>
+
+                        <p>然后等待安装</p>
+
+                        <figure>
+                            <img src="https://tao-pic.pages.dev/kali/image-20260322111835199.png" alt="安装进度">
+                            <figcaption>图注：安装进度</figcaption>
+                        </figure>
+
+                        <p>软件选择Desktop environment(桌面环境)一定选择，有时候默认是不选择的</p>
+
+                        <figure>
+                            <img src="https://tao-pic.pages.dev/kali/image-20260322112121850.png" alt="软件选择">
+                            <figcaption>图注：软件选择</figcaption>
+                        </figure>
+
+                        <p>继续等待</p>
+
+                        <figure>
+                            <img src="https://tao-pic.pages.dev/kali/image-20260322112314715.png" alt="安装完成">
+                            <figcaption>图注：安装完成</figcaption>
+                        </figure>
+
+                        <p>选择是</p>
+
+                        <figure>
+                            <img src="https://tao-pic.pages.dev/kali/image-20260322120306883.png" alt="安装GRUB">
+                            <figcaption>图注：安装GRUB</figcaption>
+                        </figure>
+
+                        <p>安装到/dev/sda</p>
+
+                        <figure>
+                            <img src="https://tao-pic.pages.dev/kali/image-20260322120339678.png" alt="选择设备">
+                            <figcaption>图注：选择设备</figcaption>
+                        </figure>
+
+                        <p>安装完成，点击重启</p>
+
+                        <figure>
+                            <img src="https://tao-pic.pages.dev/kali/image-20260322120638783.png" alt="重启系统">
+                            <figcaption>图注：重启系统</figcaption>
+                        </figure>
+
+                        <h2 id="heading-4">VM压缩包及汉化适配硬件</h2>
+
+                        <p>将下载的压缩包解压</p>
+
+                        <figure>
+                            <img src="https://tao-pic.pages.dev/kali/image-20260322112518932.png" alt="解压文件">
+                            <figcaption>图注：解压文件</figcaption>
+                        </figure>
+
+                        <p>打开解压的文件夹后，找到.vmx的文件</p>
+
+                        <figure>
+                            <img src="https://tao-pic.pages.dev/kali/image-20260322112820580.png" alt="找到vmx文件">
+                            <figcaption>图注：找到vmx文件</figcaption>
+                        </figure>
+
+                        <p>按住拖到vmware中即可打开</p>
+
+                        <figure>
+                            <img src="https://tao-pic.pages.dev/kali/image-20260322113028264.png" alt="拖入VMware">
+                            <figcaption>图注：拖入VMware</figcaption>
+                        </figure>
+
+                        <h3 id="heading-5">适配硬件(应对开机不显示鼠标)</h3>
+
+                        <p>在开机以前，需要升级一下硬件，硬件不适配会出现鼠标不显示的情况</p>
+
+                        <figure>
+                            <img src="https://tao-pic.pages.dev/kali/image-20260322113159557.png" alt="升级硬件1">
+                            <figcaption>图注：升级硬件</figcaption>
+                        </figure>
+
+                        <figure>
+                            <img src="https://tao-pic.pages.dev/kali/image-20260322113222535.png" alt="升级硬件2">
+                            <figcaption>图注：升级硬件</figcaption>
+                        </figure>
+
+                        <p>在此处选择你的vmware版本，然后下一步</p>
+
+                        <figure>
+                            <img src="https://tao-pic.pages.dev/kali/image-20260322113306449.png" alt="选择VMware版本">
+                            <figcaption>图注：选择VMware版本</figcaption>
+                        </figure>
+
+                        <p>选择更改此虚拟机</p>
+
+                        <figure>
+                            <img src="https://tao-pic.pages.dev/kali/image-20260322113351835.png" alt="更改虚拟机">
+                            <figcaption>图注：更改虚拟机</figcaption>
+                        </figure>
+
+                        <p>点击完成，等待更改完后关闭</p>
+
+                        <figure>
+                            <img src="https://tao-pic.pages.dev/kali/image-20260322113420810.png" alt="等待完成">
+                            <figcaption>图注：等待完成</figcaption>
+                        </figure>
+
+                        <figure>
+                            <img src="https://tao-pic.pages.dev/kali/image-20260322113437362.png" alt="关闭窗口">
+                            <figcaption>图注：关闭窗口</figcaption>
+                        </figure>
+
+                        <h3 id="heading-6">汉化</h3>
+
+                        <figure>
+                            <img src="https://tao-pic.pages.dev/kali/image-20260322113712723.png" alt="登录界面">
+                            <figcaption>图注：登录界面</figcaption>
+                        </figure>
+
+                        <p>登录后 Ctrl +Alt +T 打开terminal</p>
+
+                        <pre><code class="language-bash">sudo dpkg-reconfigure locales</code></pre>
+
+                        <p>输入kali密码</p>
+
+                        <figure>
+                            <img src="https://tao-pic.pages.dev/kali/image-20260322113902707.png" alt="输入密码">
+                            <figcaption>图注：输入密码</figcaption>
+                        </figure>
+
+                        <p>一直按键盘的下键，找到zh_CN.UTF-8 UTF-8</p>
+
+                        <figure>
+                            <img src="https://tao-pic.pages.dev/kali/image-20260322113959251.png" alt="找到中文">
+                            <figcaption>图注：找到中文</figcaption>
+                        </figure>
+
+                        <figure>
+                            <img src="https://tao-pic.pages.dev/kali/image-20260322114136177.png" alt="选中中文">
+                            <figcaption>图注：选中中文</figcaption>
+                        </figure>
+
+                        <p>按空格选中，然后Tab键选中&lt;OK&gt;，回车</p>
+
+                        <figure>
+                            <img src="https://tao-pic.pages.dev/kali/image-20260322114235664.png" alt="确认选择">
+                            <figcaption>图注：确认选择</figcaption>
+                        </figure>
+
+                        <figure>
+                            <img src="https://tao-pic.pages.dev/kali/image-20260322114311733.png" alt="选择语言">
+                            <figcaption>图注：选择语言</figcaption>
+                        </figure>
+
+                        <p>下载完成以后重启</p>
+
+                        <pre><code class="language-bash">reboot</code></pre>
+
+                        <figure>
+                            <img src="https://tao-pic.pages.dev/kali/image-20260322114401132.png" alt="重启">
+                            <figcaption>图注：重启</figcaption>
+                        </figure>
+
+                        <p>建议保留旧文件名</p>
+
+                        <figure>
+                            <img src="https://tao-pic.pages.dev/kali/image-20260322114538975.png" alt="保留文件名">
+                            <figcaption>图注：保留文件名</figcaption>
+                        </figure>
+
+                        <p>汉化完成</p>
+
+                        <h2 id="heading-7">创建root用户</h2>
+
+                        <p>Ctrl+Alt+T打开terminal</p>
+
+                        <pre><code class="language-bash">sudo passwd root</code></pre>
+
+                        <figure>
+                            <img src="https://tao-pic.pages.dev/kali/image-20260322114659832.png" alt="设置root密码">
+                            <figcaption>图注：设置root密码</figcaption>
+                        </figure>
+
+                        <p>切换到root用户</p>
+
+                        <figure>
+                            <img src="https://tao-pic.pages.dev/kali/image-20260322114820695.png" alt="切换用户1">
+                            <figcaption>图注：切换用户</figcaption>
+                        </figure>
+
+                        <figure>
+                            <img src="https://tao-pic.pages.dev/kali/image-20260322114911808.png" alt="切换用户2">
+                            <figcaption>图注：切换用户</figcaption>
+                        </figure>
+
+                        <figure>
+                            <img src="https://tao-pic.pages.dev/kali/image-20260322115019852.png" alt="切换用户3">
+                            <figcaption>图注：切换用户</figcaption>
+                        </figure>
+
+                        <h2 id="heading-8">备份</h2>
+
+                        <p>建议新建一个快照，以后出什么问题，可以快速还原</p>
+
+                        <figure>
+                            <img src="https://tao-pic.pages.dev/kali/image-20260322120805661.png" alt="创建快照">
+                            <figcaption>图注：创建快照</figcaption>
+                        </figure>
+
+                        <p>命名为初始，点击拍摄快照，备份成功</p>
+
+                        <figure>
+                            <img src="https://tao-pic.pages.dev/kali/image-20260322120849453.png" alt="快照完成">
+                            <figcaption>图注：快照完成</figcaption>
+                        </figure>
+
+                        <h2 id="heading-9">kali2025.2安装特有情况</h2>
+
+                        <h3 id="heading-10">安装过程中提示安装失败</h3>
+
+                        <p>回到第一步选择语言，使用英文重新安装一遍即可</p>
+
+                        <h3 id="heading-11">汉化后root用户登陆后仍然会是英文</h3>
+
+                        <pre><code class="language-bash">vim .profile</code></pre>
+
+                        <p>删除以下两行</p>
+
+                        <pre><code class="language-bash">export LANG=en_US.UTF-8
+export LC_ALL=en_US.UTF-8</code></pre>
+
+                        <h2 id="heading-12">总结</h2>
+
+                        <p>ISO手动安装耗时比较多，但是安装过后的目录简洁，安装过程中可以进行个性化设置</p>
+
+                        <p>VM压缩包版安装方便，不善英文的天朝人需手动汉化</p>
+
+                        <p>2025.2ISO安装会有特殊问题，不建议使用</p>
+
+                        <p>在更改完设置以后，备份一个快照</p>
+
+                    </div>
+
+                    <!-- 返回顶部按钮 -->
+                    <button id="backToTop" class="back-to-top" title="返回顶部">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M5 10l7-7m0 0l7 7m-7-7v18" />
+                        </svg>
+                    </button>
+                </article>
+            </div>
+        </div>
+    </main>
+
+    <!-- 页脚 -->
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; <span id="currentYear"></span> 小夏的个人空间</p>
+        </div>
+    </footer>
+
+    <!-- 脚本文件 -->
+    <script src="../js/main.js"></script>
+    <script src="../js/article-toc.js"></script>
+</body>
+
+</html>
