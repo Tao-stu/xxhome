@@ -86,20 +86,49 @@ function initImageViewer() {
     const images = document.querySelectorAll('.article-content figure img');
     images.forEach(img => {
         img.style.cursor = 'pointer';
-        
+
+        // 记录触摸起始位置和状态
+        let touchStartX = 0;
+        let touchStartY = 0;
+        let isTouch = false;
+
         // 桌面端点击事件
         img.addEventListener('click', (e) => {
             e.preventDefault();
-            viewer.open(img.src, img.alt);
-        });
-        
-        // 移动端触摸事件支持
-        img.addEventListener('touchend', (e) => {
-            e.preventDefault();
-            // 防止与click事件冲突
-            setTimeout(() => {
+            // 如果不是触摸操作才响应click事件
+            if (!isTouch) {
                 viewer.open(img.src, img.alt);
-            }, 100);
+            }
+        });
+
+        // 触摸开始事件
+        img.addEventListener('touchstart', (e) => {
+            const touch = e.touches[0];
+            touchStartX = touch.clientX;
+            touchStartY = touch.clientY;
+            isTouch = true;
+        }, { passive: true });
+
+        // 移动端触摸结束事件
+        img.addEventListener('touchend', (e) => {
+            const touch = e.changedTouches[0];
+            const touchEndX = touch.clientX;
+            const touchEndY = touch.clientY;
+
+            // 计算移动距离
+            const deltaX = Math.abs(touchEndX - touchStartX);
+            const deltaY = Math.abs(touchEndY - touchStartY);
+
+            // 只有移动距离小于10像素才视为点击，否则是滑动操作
+            if (deltaX < 10 && deltaY < 10) {
+                e.preventDefault();
+                viewer.open(img.src, img.alt);
+            }
+
+            // 重置触摸状态
+            setTimeout(() => {
+                isTouch = false;
+            }, 300);
         });
     });
 }
