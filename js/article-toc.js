@@ -342,6 +342,10 @@ function waitForLibraries() {
 }
 
 document.addEventListener('DOMContentLoaded', function () {
-    waitForLibraries();
+    // 初始化目录
+    initArticle();
+    // 初始化图片查看器
     initImageViewer();
+    // 等待hljs加载完成后重新初始化代码高亮
+    waitForLibraries();
 });
