@@ -143,7 +143,13 @@ class ArticleTOC {
 
     generateTOC() {
         const articleContent = document.getElementById('articleContent');
+        if (!articleContent) {
+            console.error('未找到articleContent元素');
+            return;
+        }
+
         const headings = articleContent.querySelectorAll('h1, h2, h3, h4');
+        console.log('找到的标题数量:', headings.length);
 
         if (headings.length === 0) {
             document.getElementById('articleToc').style.display = 'none';
@@ -212,10 +218,13 @@ class ArticleTOC {
         let tocHTML = '<ul class="toc-list">';
         this.headings.forEach((heading, index) => {
             const levelClass = `toc-level-${heading.level}`;
-            tocHTML += `<li class="toc-item ${levelClass}"><a href="#${heading.id}" class="toc-link" data-index="${index}"><span class="toc-number">${heading.number}</span>${heading.element.textContent}</a></li>`;
+            const text = heading.element.textContent || heading.element.innerText;
+            console.log(`标题${index}:`, text, 'level:', heading.level);
+            tocHTML += `<li class="toc-item ${levelClass}"><a href="#${heading.id}" class="toc-link" data-index="${index}"><span class="toc-number">${heading.number}</span>${text}</a></li>`;
         });
         tocHTML += '</ul>';
 
+        console.log('生成的目录HTML:', tocHTML);
         this.tocContent.innerHTML = tocHTML;
 
         this.tocLinks = this.tocContent.querySelectorAll('.toc-link');

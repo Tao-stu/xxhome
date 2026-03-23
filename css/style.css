@@ -3053,6 +3053,8 @@ body {
         padding: 1.5rem;
         margin-bottom: 2rem;
         order: 1;
+        display: flex !important;
+        flex-direction: column !important;
     }
 
     .toc-content {
