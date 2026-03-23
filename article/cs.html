@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CobaltStrike的下载及开启 - 小夏的个人空间</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="icon" type="image/jpeg" href="/img/LOGO.jpg">
+    <script src="../js/lib/highlight.min.js" defer></script>
+</head>
+
+<body>
+    <!-- 导航栏 -->
+    <nav class="navbar" id="navbar">
+        <div class="container">
+            <div class="nav-content">
+                <!-- 桌面端导航 -->
+                <div class="nav-pills desktop-nav">
+                    <a href="/" class="nav-link" data-page="home">主页</a>
+                    <a href="/blog" class="nav-link active" data-page="blog">文章</a>
+                    <a href="/guestbook" class="nav-link" data-page="guestbook">留言</a>
+                    <a href="/about" class="nav-link" data-page="about">关于</a>
+                </div>
+
+                <!-- 右上角控制区 -->
+                <div class="nav-controls">
+                    <button id="theme-toggle" class="theme-toggle" title="切换主题">
+                        <svg class="moon-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z" />
+                        </svg>
+                        <svg class="sun-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z" />
+                        </svg>
+                    </button>
+
+                    <!-- 移动端菜单按钮 -->
+                    <button id="mobile-menu-toggle" class="mobile-menu-toggle">
+                        <svg class="hamburger-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M4 6h16M4 12h16M4 18h16" />
+                        </svg>
+                        <svg class="close-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M6 18L18 6M6 6l12 12" />
+                        </svg>
+                    </button>
+                </div>
+
+                <!-- 移动端菜单 -->
+                <div class="mobile-nav" id="mobile-nav">
+                    <a href="/" class="mobile-nav-link" data-page="home">主页</a>
+                    <a href="/blog" class="mobile-nav-link active" data-page="blog">文章</a>
+                    <a href="/guestbook" class="mobile-nav-link" data-page="guestbook">留言</a>
+                    <a href="/about" class="mobile-nav-link" data-page="about">关于</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- 主内容区 -->
+    <main class="main-content">
+        <div class="container">
+            <div class="article-wrapper">
+                <!-- 左侧目录 -->
+                <aside class="article-toc" id="articleToc">
+                    <!-- 返回按钮 -->
+                    <a href="/blog" class="toc-back-btn">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M19 12H5M12 19l-7-7 7-7" />
+                        </svg>
+                        <span>返回文章列表</span>
+                    </a>
+
+                    <!-- 文章标题 -->
+                    <div class="toc-article-title">
+                        CobaltStrike的下载及开启
+                    </div>
+
+                    <div class="toc-header">
+                        <svg class="toc-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M4 6h16M4 12h16M4 18h7" />
+                        </svg>
+                        <span>文章目录</span>
+                    </div>
+                    <div class="toc-content" id="tocContent">
+                        <!-- 目录内容会动态生成 -->
+                    </div>
+                </aside>
+
+                <!-- 文章主体 -->
+                <article class="article">
+                    <!-- 文章头部信息 -->
+                    <div class="article-header">
+                        <!-- 分类和日期 -->
+                        <div class="article-meta">
+                            <span class="article-category">分类：工具</span>
+                            <span class="article-date">2026 年 3 月 23 日</span>
+                        </div>
+
+                        <h1 class="article-title">CobaltStrike的下载及开启</h1>
+
+                        <div class="article-tags">
+                            <span class="article-tag">CobaltStrike</span>
+                            <span class="article-tag">C2</span>
+                            <span class="article-tag">渗透测试</span>
+                        </div>
+
+                        <div class="article-summary">
+                            CobaltStrike下载及使用指南，介绍CS4.8的下载方法，以及server端和client端的启动配置步骤。
+                        </div>
+                    </div>
+
+                    <!-- 文章内容 -->
+                    <div class="article-content" id="articleContent">
+                        <h1 id="heading-0">CobaltStrike的下载及开启</h1>
+
+                        <h2 id="heading-1">下载</h2>
+
+                        <p><a href="https://pan.baidu.com/s/1Dv1oHSBm6vNcY_YrxIWy5Q?pwd=p2n5" target="_blank"
+                                rel="noopener noreferrer">CS4.8下载连接，解压密码mht</a></p>
+
+                        <h2 id="heading-2">开启</h2>
+
+                        <p>CS分为server和client两端，首先我们需要启动server端</p>
+
+                        <pre><code class="language-bash">./teamserver ip地址 连接密码</code></pre>
+
+                        <figure>
+                            <img src="https://tao-pic.pages.dev/cs/image-20260323093708038.png" alt="启动server端"
+                                title="启动server端">
+                            <figcaption>图注：启动server端</figcaption>
+                        </figure>
+
+                        <p>开启client</p>
+
+                        <figure>
+                            <img src="https://tao-pic.pages.dev/cs/image-20260323093914744.png" alt="开启client"
+                                title="开启client">
+                            <figcaption>图注：开启client</figcaption>
+                        </figure>
+
+                        <p>newprofile中，输入ip和密码，其它默认即可</p>
+
+                        <figure>
+                            <img src="https://tao-pic.pages.dev/cs/image-20260323094656801.png" alt="配置连接"
+                                title="配置连接">
+                            <figcaption>图注：配置连接</figcaption>
+                        </figure>
+
+                        <p>点connect连接</p>
+
+                        <figure>
+                            <img src="https://tao-pic.pages.dev/cs/image-20260323094824100.png" alt="连接成功"
+                                title="连接成功">
+                            <figcaption>图注：连接成功</figcaption>
+                        </figure>
+                    </div>
+                </article>
+            </div>
+        </div>
+    </main>
+
+    <!-- 页脚 -->
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2026 小夏的个人空间</p>
+        </div>
+    </footer>
+
+    <script src="../js/main.js"></script>
+    <script src="../js/article-toc.js"></script>
+</body>
+
+</html>
